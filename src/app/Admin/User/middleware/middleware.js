@@ -103,7 +103,7 @@ export const logout = (message = null) => {
             setTimeout(()=> {
                 sessionStorage.removeItem('header')
                 sessionStorage.removeItem('role')
-				browserHistory.push('login')
+				browserHistory.push('/admin/login')
 				dispatch(action.logOutUser())
             },3000)
         })
@@ -128,7 +128,7 @@ const authenticated = (auth, data, redirect) => {
                 null,
                 {message: 'You are log in!'}
             ))
-			browserHistory.push(redirect || '/')
+			browserHistory.push(redirect || '/admin')
         },500)
 
     }

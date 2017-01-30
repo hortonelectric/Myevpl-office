@@ -87,4 +87,4 @@ class Menu extends React.Component {
     }
 }
 
-export default Menu
+export default connect()(Menu)
