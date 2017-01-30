@@ -24,50 +24,42 @@ const store = combineReducers({
 		
 		//Profile Store 
 		profile : combineReducers({
-		  list   		: Profile.profiles,
-		  selected    	: Profile.selected,
+		  list   		: Admin_Profile.profiles,
+		  selected    	: Admin_Profile.selected,
 			  loader	: combineReducers({
-				table		: ProfileLoader.tableLoader,
+				table		: Admin_ProfileLoader.tableLoader,
 			})    
 		}),
 
 		//Admin Store
 		admin : combineReducers({
-			list   		: Admin.admins,
-			selected    : Admin.selected,
+			list   		: Admin_Admin.admins,
+			selected    : Admin_Admin.selected,
 			modal       : combineReducers({
-				add                : AdminModals.adminAddModal,
-				editUser  		   : AdminModals.adminEditUserModal,
-				editAccount        : AdminModals.adminEditAccountModal,
-				delete             : AdminModals.adminDeleteModal
+				add                : Admin_AdminModals.adminAddModal,
+				editUser  		   : Admin_AdminModals.adminEditUserModal,
+				editAccount        : Admin_AdminModals.adminEditAccountModal,
+				delete             : Admin_AdminModals.adminDeleteModal
 			}),
 			error       : combineReducers({
-				add             : AdminErrors.addAdminError,
-				editUser       	: AdminErrors.editAdminUserError,
-				editAccount     : AdminErrors.editAdminAccountError,
+				add             : Admin_AdminErrors.addAdminError,
+				editUser       	: Admin_AdminErrors.editAdminUserError,
+				editAccount     : Admin_AdminErrors.editAdminAccountError,
 			}),
 			loader		: combineReducers({
-				table			: AdminLoader.tableLoader,
-				add             : AdminLoader.addFormLoader,
-		//         editUser  		: AdminLoader.editUserFormLoader,
-		//         editAccount     : AdminLoader.editAccountFormLoader,
-				delete          : AdminLoader.deleteFormLoader
+				table			: Admin_AdminLoader.tableLoader,
+				add             : Admin_AdminLoader.addFormLoader,
+		//         editUser  		: Admin_AdminLoader.editUserFormLoader,
+		//         editAccount     : Admin_AdminLoader.editAccountFormLoader,
+				delete          : Admin_AdminLoader.deleteFormLoader
 			})
 		}),
 		
 		//User Store
 		user : combineReducers({
-			profile : User.user,
-			error   : UserError.error,
-			loader	: UserLoader.loader
-		}),
-		
-		// Server
-		serverMaintenanceModal,
-		
-		//Sockets
-		socket 		: combineReducers({
-			gameinfo	: socket.gameinfo
+			profile : Admin_User.user,
+			error   : Admin_UserError.error,
+			loader	: Admin_UserLoader.loader
 		}),
 		
 		// Alert Store

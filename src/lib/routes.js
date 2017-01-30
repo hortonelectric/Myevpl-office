@@ -11,11 +11,13 @@ const UserIsAuthenticated = UserAuthWrapper({
     wrapperDisplayName: 'UserIsAuthenticated'
 })
 
-import Container from '../app/Container'
-import Profile from '../app/Content/Profile/Profile'
-import Admin from '../app/Content/Admin/Admin'
-import Account from '../app/Content/Account/Account'
-import Login from '../app/User/Login'
+import Admin_Container from '../app/Admin/Container'
+import Admin_Admin from '../app/Admin/Content/Admin/Admin'
+import Admin_Profile from '../app/Admin/Content/Profile/Profile'
+import Admin_Account from '../app/Admin/Content/Account/Account'
+import Admin_Login from '../app/Admin/User/Login'
+
+import Home from '../app/Home/Home'
 
 export default class RouterComponent extends Component {
 	render () {
@@ -23,12 +25,12 @@ export default class RouterComponent extends Component {
 			<Router history={browserHistory}>
 				<IndexRedirect to="/" />
 				<Route path="/" component={Home}/>
-				<Route path="/admin" component={UserIsAuthenticated(Container)}/>
-					<Route path="/admin/admin" component={Admin}>
-					<Route path="/admin/profile" component={Profile}/>
-					<Route path="/admin/accounts" component={Account}/>
+				<Route path="/admin" component={UserIsAuthenticated(Admin_Container)}/>
+					<Route path="/admin/admin" component={Admin_Admin}>
+					<Route path="/admin/profile" component={Admin_Profile}/>
+					<Route path="/admin/accounts" component={Admin_Account}/>
 				</Route>
-				<Route path="/admin/login" component={Login}/>
+				<Route path="/admin/login" component={Admin_Login}/>
 			</Router>
 		)
 	}
