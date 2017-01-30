@@ -21,7 +21,7 @@ export default class RouterComponent extends Component {
 		return (
 			<Router history={browserHistory}>
 				<Route path="/" component={UserIsAuthenticated(Container)}>
-					<IndexRedirect to="/player" />
+					<IndexRedirect to="/home" />
 					<Route path="/public" component={Public}/>
 					<Route path="/admin" component={Admin}/>
 				</Route>
