@@ -3,9 +3,9 @@ import * as ACTION from '../action/action'
 
 export const tableLoader = (state = false, action) => {
     switch (action.type) {
-        case ACTION_LOADER.OPERATOR_TABLE_LOADER_ON :
+        case ACTION_LOADER.PUBLIC_TABLE_LOADER_ON :
             return true
-        case ACTION_LOADER.OPERATOR_TABLE_LOADER_OFF :
+        case ACTION_LOADER.PUBLIC_TABLE_LOADER_OFF :
             return false
         default :
             return state
@@ -14,9 +14,9 @@ export const tableLoader = (state = false, action) => {
 
 export const addFormLoader = (state = false, action) => {
     switch (action.type) {
-        case ACTION_LOADER.OPERATOR_ADD_FORM_LOADER_ON :
+        case ACTION_LOADER.PUBLIC_ADD_FORM_LOADER_ON :
             return true
-        case ACTION_LOADER.OPERATOR_ADD_FORM_LOADER_OFF :
+        case ACTION_LOADER.PUBLIC_ADD_FORM_LOADER_OFF :
             return false
         default :
             return state
@@ -26,9 +26,9 @@ export const addFormLoader = (state = false, action) => {
 
 export const editAccountFormLoader = (state = false, action) => {
     switch (action.type) {
-        case ACTION_LOADER.OPERATOR_EDIT_ACCOUNT_FORM_LOADER_ON :
+        case ACTION_LOADER.PUBLIC_EDIT_ACCOUNT_FORM_LOADER_ON :
             return true
-        case ACTION_LOADER.OPERATOR_EDIT_ACCOUNT_FORM_LOADER_OFF :
+        case ACTION_LOADER.PUBLIC_EDIT_ACCOUNT_FORM_LOADER_OFF :
             return false
         default :
             return state
@@ -37,9 +37,9 @@ export const editAccountFormLoader = (state = false, action) => {
 
 export const editUserFormLoader = (state = false, action) => {
     switch (action.type) {
-        case ACTION_LOADER.OPERATOR_EDIT_USER_FORM_LOADER_ON :
+        case ACTION_LOADER.PUBLIC_EDIT_USER_FORM_LOADER_ON :
             return true
-        case ACTION_LOADER.OPERATOR_EDIT_USER_FORM_LOADER_OFF :
+        case ACTION_LOADER.PUBLIC_EDIT_USER_FORM_LOADER_OFF :
             return false
         default :
             return state
@@ -48,9 +48,9 @@ export const editUserFormLoader = (state = false, action) => {
 
 export const deleteFormLoader = (state = false, action) => {
     switch (action.type) {
-        case ACTION_LOADER.OPERATOR_DELETE_FORM_LOADER_ON :
+        case ACTION_LOADER.PUBLIC_DELETE_FORM_LOADER_ON :
             return true
-        case ACTION_LOADER.OPERATOR_DELETE_FORM_LOADER_OFF :
+        case ACTION_LOADER.PUBLIC_DELETE_FORM_LOADER_OFF :
             return false
         default :
             return state
