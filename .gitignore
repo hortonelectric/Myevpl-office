@@ -6,3 +6,4 @@ npm-debug.log
 vendor
 ./config.json
 config.json
+yarn-error.log
