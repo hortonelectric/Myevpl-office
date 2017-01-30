@@ -1,10 +1,8 @@
 import React from 'react'
-import { render } from 'react-dom'
-import thunk from 'redux-thunk'
-import reducer from './combinedReducers'
 import { Provider } from 'react-redux'
-import { createStore, applyMiddleware } from 'redux'
-import { Router, IndexRedirect, Route, browserHistory } from 'react-router'
+import { render } from 'react-dom'
+import createStore from './lib/web/configureStore'
+import Router from './routes.web'
 
 import { UserAuthWrapper } from 'redux-auth-wrapper'
 import { authenticate } from './app/User/middleware/middleware'
@@ -39,4 +37,24 @@ render((
 			<Route path="/login" component={Login}/>
         </Router>
     </Provider>
+), rootElement)
+
+
+const store = createStore()
+const rootElement = document.getElementById('app')
+
+String.format = function (format) {
+  const args = Array.prototype.slice.call(arguments, 1)
+  return format.replace(/{(\d+)}/g, function (match, number) {
+      return typeof args[number] !== 'undefined'
+        ? args[number]
+        : match
+    })
+}
+
+
+render((
+  <Provider store={store}>
+    <Router />
+  </Provider>
 ), rootElement)
