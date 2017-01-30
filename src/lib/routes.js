@@ -12,18 +12,20 @@ const UserIsAuthenticated = UserAuthWrapper({
 })
 
 import Container from '../app/Container'
-import Public from '../app/Content/Public/Public'
+import Profile from '../app/Content/Profile/Profile'
 import Admin from '../app/Content/Admin/Admin'
+import Account from '../app/Content/Account/Account'
 import Login from '../app/User/Login'
 
 export default class RouterComponent extends Component {
 	render () {
 		return (
 			<Router history={browserHistory}>
-				<Route path="/" component={UserIsAuthenticated(Container)}>
-					<IndexRedirect to="/home" />
-					<Route path="/public" component={Public}/>
-					<Route path="/admin" component={Admin}/>
+				<Route path="/" component={Profile}/>
+				<Route path="/admin" component={UserIsAuthenticated(Container)}>
+					<IndexRedirect to="/admins" />
+				<Route path="/admins" component={Admin}/>
+        <Route path="/accounts" component={Account}/>
 				</Route>
 				<Route path="/login" component={Login}/>
 			</Router>

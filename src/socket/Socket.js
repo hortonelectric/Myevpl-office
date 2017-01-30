@@ -13,7 +13,7 @@ class ServerMaintenance extends Component {
 		const socket = io(`${socketAddress}?authHeader=${authorization}`)
 
 		socket.on('game-info', (data) => this.props.dispatch(action.socketGameInfo(data)))
-		socket.on('players-list', (data) => this.props.dispatch(action.socketPlayerList(data)))
+		socket.on('players-list', (data) => this.props.dispatch(action.socketAccountList(data)))
 		socket.on('game-history', (data) => this.props.dispatch(action.socketGameFinished(data)))
 	}
 

@@ -9,7 +9,7 @@ export const socketGameInfo = data => {
  	}
 }
 
-export const socketPlayerList = data => {
+export const socketAccountList = data => {
     return {
         type: SOCKET_PLAYER_LIST,
 		data

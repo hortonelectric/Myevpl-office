@@ -12,12 +12,11 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'app.bundle.js',
-        publicPath: '/'
+        publicPath: '/assets/'
     },
     resolve: {
-      extensions: ['', '.scss', '.css', '.js', '.jsx', '.json'],
+      extensions: ['', '.scss', '.css', '.js', '.jsx', '.json','.png','.jpg'],
       modulesDirectories: [
-        'node_modules',
         path.resolve(__dirname, './node_modules'),
         path.resolve('./src')
       ]
@@ -27,9 +26,9 @@ module.exports = {
     sassLoader: {
       data: '@import "theme/_config.scss";',
       includePaths: [path.resolve(__dirname, './src')]
-    },    
+    },
     plugins: [
-      new ExtractTextPlugin('bundle.css', { allChunks: true }),
+      new ExtractTextPlugin('./bundle.css', { allChunks: true }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.CommonsChunkPlugin(/* chunkName= */"vendor", /* filename= */"vendor.bundle.js"),
@@ -54,7 +53,6 @@ module.exports = {
             { test: /\.json$/, exclude: /node_modules/, loader: 'json' },
         ],
     loaders: [
-      { test: /\.json$/, loader: "json-loader" },
       {
         test: /\.jsx?$/,
         exclude: [/native/,/\.rn\.js$/],
@@ -66,7 +64,7 @@ module.exports = {
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i, include: /src\/img/, 
+        test: /\.(jpe?g|png|gif|svg)$/i, include: /src\/img/,
         loader: "file-loader"
       }
 

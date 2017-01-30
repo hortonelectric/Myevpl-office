@@ -13,27 +13,25 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'app.bundle.js',
-        publicPath: '/'
+        publicPath: '/assets/'
     },
     resolve: {
         extensions: ['', '.scss', '.css', '.js', '.jsx', '.json', '.png', '.jpg'],
         modulesDirectories: [
-            'node_modules',
             path.resolve(__dirname, './node_modules'),
             path.resolve('./src')
 
         ]
-    },    
+    },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('bundle.css', { allChunks: true })
+        new ExtractTextPlugin('./bundle.css', { allChunks: true })
     ],
     module: {
         preLoaders: [
             { test: /\.json$/, exclude: /node_modules/, loader: 'json' },
         ],
         loaders: [
-            { test: /\.json$/, loader: "json-loader" },
             {
               test: /\.jsx?$/,
               exclude: [/native/,/\.rn\.js$/],
@@ -57,5 +55,5 @@ module.exports = {
     sassLoader: {
       data: '@import "theme/_config.scss";',
       includePaths: [path.resolve(__dirname, './src')]
-    },    
+    },
 };

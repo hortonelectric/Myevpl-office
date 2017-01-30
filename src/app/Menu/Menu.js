@@ -12,7 +12,7 @@ class Menu extends React.Component {
 
     render(){
 
-		const role = sessionStorage.getItem('role') 	
+		const role = sessionStorage.getItem('role')
 
 		if(role == 'admin'){
 			return(
@@ -27,18 +27,26 @@ class Menu extends React.Component {
 							</Link>
 						</li>
 
-						<li className="sidebar-label pt15">Public Management</li>
+						<li className="sidebar-label pt15">Profile Management</li>
 						<li>
-							<Link to="/player">
+							<Link to="/profiles">
 								<span className="glyphicon glyphicon-user" />
-								<span className="sidebar-title">Public</span>
+								<span className="sidebar-title">Profiles</span>
+							</Link>
+						</li>
+
+						<li className="sidebar-label pt15">Account Management</li>
+						<li>
+							<Link to="/accounts">
+								<span className="glyphicon glyphicon-user" />
+								<span className="sidebar-title">Accounts</span>
 							</Link>
 						</li>
 					</ul>
 				</div>
 			</aside>
 			)
-		}			
+		}
 
 		if(role == 'account'){
 			return(
@@ -53,7 +61,7 @@ class Menu extends React.Component {
 								<span className="sidebar-title">ATM Management</span>
 							</Link>
 						</li>
-					   
+
 						<li className="sidebar-label pt20">User</li>
 						<li>
 							<a href="#" onClick={this.handleClick}>
@@ -66,8 +74,8 @@ class Menu extends React.Component {
 				</div>
 			</aside>
 			)
-	 	}			
-       
+	 	}
+
     }
 }
 
