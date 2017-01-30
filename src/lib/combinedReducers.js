@@ -20,7 +20,7 @@ import { alert } from '../app/Admin/Alert/reducer'
 const store = combineReducers({
 
 	//Administration Module Store
-	admin : combinedReducers({
+	admin : combineReducers({
 		
 		//Profile Store 
 		profile : combineReducers({

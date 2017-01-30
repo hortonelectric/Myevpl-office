@@ -28,7 +28,7 @@ class Alert extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        alert : state.alert
+        alert : state.admin.alert
     }
 }
 

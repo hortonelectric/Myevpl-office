@@ -18,6 +18,6 @@ class Header extends React.Component {
 
 export default connect(
 	state => ({
-			profile : state.user.profile
+			profile : state.admin.user.profile
 		})
 )(Header)

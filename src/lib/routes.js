@@ -23,13 +23,11 @@ export default class RouterComponent extends Component {
 	render () {
 		return (
 			<Router history={browserHistory}>
-				<IndexRedirect to="/" />
 				<Route path="/" component={Home}/>
-
 				<Route path="/admin" component={AdminAuthentication(Admin_Container)}/>
 					<Route path="/admin/admin" component={Admin_Admin}>
 					<Route path="/admin/profile" component={Admin_Profile}/>
-					<Route path="/admin/accounts" component={Admin_Account}/>
+					<Route path="/admin/account" component={Admin_Account}/>
 				</Route>
 				<Route path="/admin/login" component={Admin_Login}/>
 			</Router>
