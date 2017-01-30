@@ -65,7 +65,7 @@ const store = combineReducers({
 		// Alert Store
 		alert,
 	
-	})
+	}),
 	
     //redux-form
     form

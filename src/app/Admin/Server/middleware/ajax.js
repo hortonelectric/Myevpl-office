@@ -1,5 +1,5 @@
 import request from 'superagent'
-import config from '../../../../config.json'
+import config from '../../../../../config.json'
 
 const api = config.current
 

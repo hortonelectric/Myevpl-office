@@ -1,4 +1,4 @@
-import * as ADMIN_ACTION from '../app/Content/Admin/action/action'
+import * as ADMIN_ACTION from '../app/Admin/Content/Admin/action/action'
 import { reducer } from 'redux-form'
 
 export default reducer.plugin({

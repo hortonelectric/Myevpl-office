@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 
 import Header from './Header/Header'
 import Menu from './Menu/Menu'
-import Admin from './Admin/Admin'
+import Content from './Content/Content'
 import Alert from './Alert/Alert'
 import ServerMaintenance from './Server/ServerMaintenance'
-import Socket from '../socket/Socket'
 
 class Container extends Component {
     render() {

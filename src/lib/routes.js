@@ -3,12 +3,12 @@ import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 
 import { UserAuthWrapper } from 'redux-auth-wrapper'
-import { authenticate } from '../app/User/middleware/middleware'
+import { authenticate } from '../app/Admin/User/middleware/middleware'
 
-const UserIsAuthenticated = UserAuthWrapper({
-    authSelector: state => state.user.profile,
+const AdminAuthentication = UserAuthWrapper({
+    authSelector: state => state.admin.user.profile,
     redirectAction: authenticate,
-    wrapperDisplayName: 'UserIsAuthenticated'
+    wrapperDisplayName: 'AdminIsAuthenticated'
 })
 
 import Admin_Container from '../app/Admin/Container'
@@ -25,7 +25,8 @@ export default class RouterComponent extends Component {
 			<Router history={browserHistory}>
 				<IndexRedirect to="/" />
 				<Route path="/" component={Home}/>
-				<Route path="/admin" component={UserIsAuthenticated(Admin_Container)}/>
+
+				<Route path="/admin" component={AdminAuthentication(Admin_Container)}/>
 					<Route path="/admin/admin" component={Admin_Admin}>
 					<Route path="/admin/profile" component={Admin_Profile}/>
 					<Route path="/admin/accounts" component={Admin_Account}/>

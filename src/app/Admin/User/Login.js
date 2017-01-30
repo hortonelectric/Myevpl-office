@@ -120,8 +120,8 @@ Login = reduxForm({
         gender: 'false'
     }
 }, state => ({
-    ajaxErrors : state.user.error,
-	loader:	state.user.loader
+    ajaxErrors 	: state.admin.user.error,
+	loader		: state.admin.user.loader
 })
 )(Login)
 
