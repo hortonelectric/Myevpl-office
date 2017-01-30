@@ -3,7 +3,7 @@ import config from '../../../../../config.json'
 
 const api = config.current
 
-export const listPlayers = (cb) => {
+export const listPublics = (cb) => {
 	const authorization = sessionStorage.getItem('header')
 	request
         .get(`${api}accounts`)
@@ -13,17 +13,7 @@ export const listPlayers = (cb) => {
         })
 }
 
-export const listPlayersOnline = (cb) => {
-	const authorization = sessionStorage.getItem('header')
-	request
-        .get(`${api}players/online`)
-        .set('Authorization', authorization)
-        .end((error, response) => {
-			cb(response.status, response.body)
-        })
-}
-
-export const editPlayer = (id, data, cb) => {
+export const editPublic = (id, data, cb) => {
 	const authorization = sessionStorage.getItem('header')
 	request
         .put(`${api}accounts/${id}`)
@@ -34,7 +24,7 @@ export const editPlayer = (id, data, cb) => {
         })
 }
 
-export const  deletePlayer = (id, cb) => {
+export const  deletePublic = (id, cb) => {
 	const authorization = sessionStorage.getItem('header')
     request
         .del(`${api}accounts/${id}`)

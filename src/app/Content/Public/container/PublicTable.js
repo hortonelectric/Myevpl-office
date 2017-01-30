@@ -13,7 +13,8 @@ class PublicTable extends Component {
 
 	_createRows = () => {
 		const filteredRow = this.props.publics ? this._filterRows(this.props.publics) : this.props.publics
-		const mapping = (publicMap,index) => {
+
+		const mapping = (this.props.publicMap, index) => {
 			return (
 				<tr 
 					className={`default-row-hover ${this.props.profile && this.props.profile._id  == publicMap._id ? 'default-row-active' : ''}`}
@@ -21,7 +22,7 @@ class PublicTable extends Component {
 					value={publicMap.id}
 					onClick={this.handleClick.bind(null, publicMap._id)}
 				>
-					<td>{publicMap.user.name}</td>
+					<td>{publicMap.name}</td>
 				</tr>
 			)
 		}
@@ -34,10 +35,9 @@ class PublicTable extends Component {
 }
 
 export default connect( state => ({ 
-	publics 	: state.public.list,
-	online 		: state.public.online,
-	loader 		: state.public.loader.table,
-	profile 	: state.public.selected ? 
-		state.public.list.find(publicState => publicState._id == state.publicState.selected) : null,
+	publics 	: state.publicState.list,
+	loader 		: state.publicState.loader.table,
+	profile 	: state.publicState.selected ? 
+		state.publicState.list.find(publicState => publicState._id == state.publicState.selected) : null,
 	filter 		: state.publicState.filter
 }))(PublicTable)

@@ -9,39 +9,27 @@ import * as errorAction from '../action/errorAction'
 import { handle } from './handleResponse'
 import {logout} from '../../../User/middleware/middleware'
 
-export const listPlayers = () => {
+export const listPublics = () => {
 
     return dispatch => {
 
 		dispatch(loaderAction.tableLoaderOn())
-        ajax.listPlayers((status, response) => {
+        ajax.listPublics((status, response) => {
             if(status === 401) dispatch(handleUnauthorized())
-            if(status === 200) dispatch(action.listPlayers(response.data))
+            if(status === 200) dispatch(action.listPublics(response.data))
 			dispatch(loaderAction.tableLoaderOff())
         })
 
     }
 }
 
-export const listPlayersOnline = () => {
-
-    return dispatch => {
-
-        ajax.listPlayersOnline((status, response) => {
-            if(status === 401) dispatch(handleUnauthorized())
-            if(status === 200) dispatch(action.listOnlinePlayers(response))
-        })
-
-    }
-}
-
-export const editPlayer = (id, payload) => {
+export const editPublic = (id, payload) => {
 
     return dispatch =>{
 
-        ajax.editPlayer(id ,payload, (status,response) => {
+        ajax.editPublic(id ,payload, (status,response) => {
             if(status === 401) dispatch(handleUnauthorized())
-            if(status === 200) dispatch(action.editPlayer(response))
+            if(status === 200) dispatch(action.editPublic(response))
         })
 
     }
