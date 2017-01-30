@@ -8,7 +8,7 @@ class Header extends React.Component {
             <header className="navbar navbar-fixed-top bg-dark">
                 <div className="navbar-branding">
                     <a className="navbar-brand" href="dashboard.html">
-                        <b>Made to Burst</b>
+                        <b>Myevpl</b>
                     </a>
                 </div>
             </header>

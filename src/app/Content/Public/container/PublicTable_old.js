@@ -1,14 +1,14 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { selectPlayer } from '../action/action'
+import { selectPublic } from '../action/action'
 import _ from 'lodash'
 
 import  Table from '../component/Table'
 
-class PlayerTable extends Component {
+class PublicTable extends Component {
 
     handleClick = (id) => {
-        this.props.dispatch(selectPlayer(id))
+        this.props.dispatch(selectPublic(id))
     }
 
 	_filterRows = (players) => {
@@ -106,4 +106,4 @@ export default connect( state => ({
 	profile 	: state.player.selected ? 
 		state.player.list.find(player => player._id == state.player.selected) : null,
 	filter 		: state.player.filter
-}))(PlayerTable)
+}))(PublicTable)
