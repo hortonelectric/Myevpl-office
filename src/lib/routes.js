@@ -21,13 +21,14 @@ export default class RouterComponent extends Component {
 	render () {
 		return (
 			<Router history={browserHistory}>
-				<Route path="/" component={Profile}/>
-				<Route path="/admin" component={UserIsAuthenticated(Container)}>
-					<IndexRedirect to="/admins" />
-				<Route path="/admins" component={Admin}/>
-        <Route path="/accounts" component={Account}/>
+				<IndexRedirect to="/" />
+				<Route path="/" component={Home}/>
+				<Route path="/admin" component={UserIsAuthenticated(Container)}/>
+					<Route path="/admin/admin" component={Admin}>
+					<Route path="/admin/profile" component={Profile}/>
+					<Route path="/admin/accounts" component={Account}/>
 				</Route>
-				<Route path="/login" component={Login}/>
+				<Route path="/admin/login" component={Login}/>
 			</Router>
 		)
 	}
