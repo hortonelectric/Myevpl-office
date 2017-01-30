@@ -2,37 +2,31 @@ import React, { Component } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import { Router, Route, browserHistory, IndexRedirect } from 'react-router'
 
-import Container from './modules/Container.web'
-import Login from './modules/Login/Login.web'
-import Username from './modules/Username/Username.web'
-import PinNumber from './modules/PinNumber/PinNumber.web'
-import Password from './modules/Password/Password.web'
-import ReviewDetails from './modules/ReviewDetails/ReviewDetails.web'
-import Home from './modules/Home/Home.web'
+import { UserAuthWrapper } from 'redux-auth-wrapper'
+import { authenticate } from '../app/User/middleware/middleware'
 
-import ChangePassword from './modules/ChangePassword/ChangePassword.web'
-import ChangePin from './modules/ChangePin/ChangePin.web'
-import PasswordRecovery from './modules/PasswordRecovery/PasswordRecovery.web'
+const UserIsAuthenticated = UserAuthWrapper({
+    authSelector: state => state.user.profile,
+    redirectAction: authenticate,
+    wrapperDisplayName: 'UserIsAuthenticated'
+})
+
+import Container from '../app/Container'
+import Player from '../app/Content/Player/Player'
+import Admin from '../app/Content/Admin/Admin'
+import Login from '../app/User/Login'
 
 export default class RouterComponent extends Component {
-  render () {
-      return (
-              <Router history={browserHistory}>
-                <Route path="/" component={Container}>
-                  <IndexRedirect to="/login" />
-                  <Route path="/login" component={Login}/>
-      
-                  <Route path="/signup/username" component={Username}/>
-                  <Route path="/signup/pin" component={PinNumber}/>
-                  <Route path="/signup/password" component={Password}/>
-                  <Route path="/signup/review" component={ReviewDetails}/>
-                  <Route path="/home" component={Home}/>
-      
-                  <Route path="/changePassword" component={ChangePassword}/>
-                  <Route path="/changePin" component={ChangePin}/>
-                  <Route path="/passwordRecovery" component={PasswordRecovery}/>
-                </Route>
-              </Router>
-          )
-    }
+	render () {
+		return (
+			<Router history={browserHistory}>
+				<Route path="/" component={UserIsAuthenticated(Container)}>
+					<IndexRedirect to="/player" />
+					<Route path="/player" component={Player}/>
+					<Route path="/admin" component={Admin}/>
+				</Route>
+				<Route path="/login" component={Login}/>
+			</Router>
+		)
+	}
 }

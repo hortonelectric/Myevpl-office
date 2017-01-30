@@ -2,32 +2,32 @@ import { combineReducers } from 'redux'
 
 import form from './formReducer'
 
-import * as Player from './app/Content/Player/reducer/reducer'
-import * as PlayerLoader from './app/Content/Player/reducer/loaderReducer'
-import * as PlayerFilter from './app/Content/Player/PlayerFilter/reducer'
+import * as Player from '../app/Content/Player/reducer/reducer'
+import * as PlayerLoader from '../app/Content/Player/reducer/loaderReducer'
+import * as PlayerFilter from '../app/Content/Player/PlayerFilter/reducer'
 
-import * as Admin from './app/Content/Admin/reducer/reducer'
-import * as AdminLoader from './app/Content/Admin/reducer/loaderReducer'
-import * as AdminErrors from './app/Content/Admin/reducer/errorReducer'
-import * as AdminModals from './app/Content/Admin/reducer/modalReducer'
+import * as Admin from '../app/Content/Admin/reducer/reducer'
+import * as AdminLoader from '../app/Content/Admin/reducer/loaderReducer'
+import * as AdminErrors from '../app/Content/Admin/reducer/errorReducer'
+import * as AdminModals from '../app/Content/Admin/reducer/modalReducer'
 
-import * as GameHistory from './app/Content/GameHistory/reducer/reducer'
-import * as GameHistoryLoader from './app/Content/GameHistory/reducer/loaderReducer'
-import { gameHistoryDetailModal } from './app/Content/GameHistory/reducer/modalReducer'
+import * as GameHistory from '../app/Content/GameHistory/reducer/reducer'
+import * as GameHistoryLoader from '../app/Content/GameHistory/reducer/loaderReducer'
+import { gameHistoryDetailModal } from '../app/Content/GameHistory/reducer/modalReducer'
 
-import * as BetHistory from './app/Content/BetHistory/reducer/reducer'
-import * as BetHistoryLoader from './app/Content/BetHistory/reducer/loaderReducer'
-import * as BetHistoryFilter from './app/Content/BetHistory/BetHistoryFilter/reducer'
-import { betHistoryDetailModal } from './app/Content/BetHistory/reducer/modalReducer'
+import * as BetHistory from '../app/Content/BetHistory/reducer/reducer'
+import * as BetHistoryLoader from '../app/Content/BetHistory/reducer/loaderReducer'
+import * as BetHistoryFilter from '../app/Content/BetHistory/BetHistoryFilter/reducer'
+import { betHistoryDetailModal } from '../app/Content/BetHistory/reducer/modalReducer'
 
-import * as User from './app/User/reducer/reducer'
-import * as UserError from './app/User/reducer/errorReducer'
-import * as UserLoader from './app/User/reducer/loaderReducer'
+import * as User from '../app/User/reducer/reducer'
+import * as UserError from '../app/User/reducer/errorReducer'
+import * as UserLoader from '../app/User/reducer/loaderReducer'
 
-import { alert } from './app/Alert/reducer'
-import { serverMaintenanceModal } from './app/Server/reducer'
+import { alert } from '../app/Alert/reducer'
+import { serverMaintenanceModal } from '../app/Server/reducer'
 
-import * as socket from './socket/reducer'
+import * as socket from '../socket/reducer'
 
 const store = combineReducers({
 

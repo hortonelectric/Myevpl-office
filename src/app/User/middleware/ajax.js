@@ -5,7 +5,7 @@ const api = config.current
 
 export const login = (data, cb) => {
     request
-        .post(`${api}login/admin`)
+        .post(`${api}login`)
         .send(data)
         .end((error, response) => {
             cb(response.status, response.body)
