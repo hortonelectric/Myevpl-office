@@ -1,33 +1,28 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import Button from 'react-toolbox/lib/button';
-import nextButton from 'theme/nextButton.scss';
-import { browserHistory } from 'react-router'
 
-import ProfileTable from './container/ProfileTable'
-// import ProfileDetail from './container/ProfileDetail'
-// import ProfileFilter from './ProfileFilter/ProfileFilter'
+import AddFormVenue from './component/AddFormVenue'
 
-import { listProfiles } from './middleware/middleware'
+// import { listProfiles } from './middleware/middleware'
 
 class Profile extends Component {
 
-    componentWillMount = () => {
-        this.props.dispatch(listProfiles())
-    }
+    // componentWillMount = () => {
+    //     this.props.dispatch(listProfiles())
+    // }
 
     render() {
         return (
-            <section id="player">
+            <section id="profile">
 				<div className="row">
-					<div className="col-md-5">
-						<ProfileTable />
+					<div className="col-xs-12">
+						<AddFormVenue />
 					</div>
 				</div>
 			</section>
         )
     }
-    //
+	
     // render() {
     //     return (
     //         <section id="player">

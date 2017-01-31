@@ -3,10 +3,11 @@ import React,{Component} from 'react'
 export default class Basic extends Component {
 
     shouldComponentUpdate(nextProps) {
-        return  this.props.first  	    !== nextProps.first  ||
-				this.props.middle       !== nextProps.middle ||
-				this.props.last         !== nextProps.last   ||
-                this.props.ajaxErrors   !== nextProps.ajaxErrors;
+        return  this.props.type  	    	!== nextProps.type  			||
+				this.props.cateredTo       	!== nextProps.cateredTo 		||
+				this.props.isAllowedUnit    !== nextProps.isAllowedUnit   	||
+                this.props.isProvideOutside !== nextProps.isProvideOutside	||
+                this.props.details   		!== nextProps.details;
     }
 
     errorDescription(input) {
