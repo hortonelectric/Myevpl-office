@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
-import AddFormVenue from './component/AddFormVenue'
+import ProfileAddVenue from './container/ProfileAddVenue'
 
 // import { listProfiles } from './middleware/middleware'
 
@@ -16,7 +16,7 @@ class Profile extends Component {
             <section id="profile">
 				<div className="row">
 					<div className="col-xs-12">
-						<AddFormVenue />
+						<ProfileAddVenue />
 					</div>
 				</div>
 			</section>

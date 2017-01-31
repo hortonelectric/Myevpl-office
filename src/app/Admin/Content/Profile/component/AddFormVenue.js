@@ -2,6 +2,7 @@ import React,{Component} from 'react'
 
 import Dropdown from 'react-toolbox/lib/dropdown';
 import Checkbox from 'react-toolbox/lib/checkbox';
+import Input from 'react-toolbox/lib/input';
 
 
 const type = [
@@ -45,15 +46,16 @@ export default class AddForm extends Component {
 
     render() {
 
-        // const {
-		// 	fields: { 
-		// 		type,
-		// 		cateredTo,
-		// 		isAllowedUnit,
-		// 		isProvideOutside,
-		// 		details
-		// 	}
-		// } = this.props;
+        const {
+			fields: { 
+				type,
+				cateredTo,
+				isAllowedUnit,
+				isProvideOutside,
+				areaQuantity,
+				details
+			}
+		} = this.props;
         //
 		// const SubmitButton = () => {
 		// 	if(this.props.loader){
@@ -83,6 +85,7 @@ export default class AddForm extends Component {
 									onChange={this.handleChange}
 									source={type}
 									label='Venue Type'
+									{...type}
 								/>
 							</div>
 							<div className="col-xs-6">
@@ -91,23 +94,39 @@ export default class AddForm extends Component {
 									onChange={this.handleChange}
 									source={cateredTo}
 									label='Events Catered To'
+									{...cateredTo}
 								/>
 							</div>
 						</div>
 						<div className="section row">
 							<div className="col-xs-4">
 								<Checkbox
-									checked={this.state.check1}
-									label="Checked option"
-									onChange={this.handleChange.bind(this, 'check1')}
+									label="Allow Outside Catering"
+									{...isAllowedUnit}
 								/>
 							</div>
-							<div className="col-xs-6">
-								<Dropdown
-									auto
-									onChange={this.handleChange}
-									source={cateredTo}
-									label='Events Catered To'
+							<div className="col-xs-4">
+								<Checkbox
+									label="Provide Outside Catering"
+									{...isProvideOutside}
+								/>
+							</div>
+							<div className="col-xs-4">
+								<Input 
+									type='number' 
+									label='Number of Event Areas' 
+									{...areaQuantity}
+								/>
+							</div>
+						</div>
+
+						<div className="section row">
+							<div className="col-xs-12">
+								<Input 
+									type='text' 
+									multiline={ true }
+									label='Event Areas Details' 
+									{...details}
 								/>
 							</div>
 						</div>

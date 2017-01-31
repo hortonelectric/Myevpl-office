@@ -1,28 +1,29 @@
 import React, {Component} from 'react'
 import { reduxForm } from 'redux-form'
 
-import { hideProfileAddVenueModal } from '../action/modalAction'
-import { addOperator } from '../middleware/middleware'
+// import { hideProfileAddVenueModal } from '../action/modalAction'
+// import { addOperator } from '../middleware/middleware'
 
-import AddForm from '../component/AddForm/AddForm'
+import AddFormVenue from '../component/AddFormVenue'
 
 class ProfileAddVenue extends Component {
 
     handleHide = () => {
-        this.props.dispatch(hideProfileAddVenueModal())
+    //     this.props.dispatch(hideProfileAddVenueModal())
     }
 
     handleSubmitForm = (e) => {
-        e.preventDefault()
-		if(!this.props.loader){
-			this.props.dispatch(addOperator(formatFields(this.props.values)))
-		}
+    //     e.preventDefault()
+	// 	if(!this.props.loader){
+	// 		this.props.dispatch(addOperator(formatFields(this.props.values)))
+	// 	}
     }
 
     render () {
-        return <AddFormVenue handleHide={this.handleHide}
-                        handleSubmitForm={this.handleSubmitForm}
-                        {...this.props}
+        return <AddFormVenue 
+					handleHide={this.handleHide}
+                    handleSubmitForm={this.handleSubmitForm}
+                    {...this.props}
         />
     }
 }
@@ -55,13 +56,8 @@ ProfileAddVenue = reduxForm({
         'cateredTo',
         'isAllowedOutside',
 		'isProvideOutside',
+		'areaQuantity',
         'details'
-    ]}, 
-	state => ({
-		modal : state.operator.modal.add,
-		loader: state.operator.loader.add,
-		ajaxErrors: state.operator.error.add
-
-	}) )(ProfileAddVenue)
+    ]} )(ProfileAddVenue)
 
 export default ProfileAddVenue
