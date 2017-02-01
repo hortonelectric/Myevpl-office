@@ -8,11 +8,9 @@ import * as component from './VenueForm'
 
 class AddFormVenue extends Component {
 
-	handleOnSubmit = () => {
+	handleOnSubmit = (data) => {
+		console.log(data)
 		console.log('foo')
-		console.log(this.props.handleSubmit( data => {
-			return data	
-		} ))
 	}
     // shouldComponentUpdate(nextProps) {
     //     return  this.props.type  	    	!== nextProps.type  			||
@@ -96,7 +94,7 @@ class AddFormVenue extends Component {
 					</div>
 
 					<div className="panel-footer text-center">
-						<button type="button" className="button btn-default" onClick={this.handleOnSubmit}>Submit</button>
+						<button type="button" className="button btn-default" onClick={handleSubmit(data => this.handleOnSubmit(data))}>Submit</button>
 						<button type="button" className="button btn-default" onClick={this.props.handleHide}>Close</button>
 					</div>
 
