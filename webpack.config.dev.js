@@ -6,6 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
     devtool: 'inline-source-map',
     entry: [
+		'react-hot-loader/patch',
         'webpack-dev-server/client?http://localhost:8002', // WebpackDevServer host and port
         'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
         './src/index.web'
@@ -35,7 +36,7 @@ module.exports = {
             {
               test: /\.jsx?$/,
               exclude: [/native/,/\.rn\.js$/],
-              loaders: ['react-hot', 'babel'],
+              loaders: ['babel'],
               include: path.join(__dirname, 'src')
             }, {
                 test: /(\.scss|\.css)$/,
