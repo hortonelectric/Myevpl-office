@@ -48,7 +48,7 @@ class AddFormVenue extends Component {
 			fields: { 
 				type,
 				cateredTo,
-				isAllowedUnit,
+				isAllowedOutside,
 				isProvideOutside,
 				areaQuantity,
 				details
@@ -86,27 +86,13 @@ class AddFormVenue extends Component {
 
         return (
 
-				<form onSubmit={this.props.handleSubmitForm}>
+				<form onSubmit={handleSubmit}>
 
 					<div className="panel-body p25">
 						<div className="section row">
 							<div className="col-xs-6">
-								<Dropdown
-									auto
-									onChange={this.handleChange}
-									source={type}
-									label='Venue Type'
-									{...type}
-								/>
 							</div>
 							<div className="col-xs-6">
-								<Dropdown
-									auto
-									onChange={this.handleChange}
-									source={cateredTo}
-									label='Events Catered To'
-									{...cateredTo}
-								/>
 							</div>
 						</div>
 						<div className="section row">

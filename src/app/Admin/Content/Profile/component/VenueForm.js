@@ -1,3 +1,4 @@
+import React,{Component} from 'react'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
 

@@ -22,7 +22,7 @@ export default class RouterComponent extends Component {
 		return (
 			<Router history={browserHistory} >
 				<Route path="/" component={Home} />
-				<Route path="/admin" component={AdminAuthentication(Admin_Container)}>
+				<Route path="/admin" component={Admin_Container}>
 					<Route path="/admin/profile" component={Admin_Profile} />
 				</Route>
 				<Route path="/admin/login" component={Admin_Login}/>
