@@ -1,6 +1,8 @@
 import React,{Component} from 'react'
 import { Field, reduxForm } from 'redux-form'
 import Dropdown from 'react-toolbox/lib/dropdown'
+import Checkbox from 'react-toolbox/lib/checkbox'
+import Input from 'react-toolbox/lib/input'
 
 import { renderIsAllowedOutside, renderIsProvideOutside, renderAreaQuantity, renderDetails } from './VenueForm'
 
@@ -42,7 +44,6 @@ class AddFormVenue extends Component {
     //             this.props.isProvideOutside !== nextProps.isProvideOutside	||
     //             this.props.details   		!== nextProps.details;
     // }
-
     render() {
 		const { 
 			fields: { 
@@ -97,19 +98,19 @@ class AddFormVenue extends Component {
 						</div>
 						<div className="section row">
 							<div className="col-xs-4">
-								<Field name="isAllowedOutside" component={renderIsAllowedOutside} {...isAllowedOutside}/>
+								<Field name="isAllowedOutside" component={renderIsAllowedOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Field name="isProvideOutside" component={renderIsProvideOutside} {...isProvideOutside}/>
+								<Field name="isProvideOutside" component={renderIsProvideOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Field name="areaQuantity" component={renderAreaQuantity} {...areaQuantity}/>
+								<Field name="areaQuantity" component={renderAreaQuantity}/>
 							</div>
 						</div>
 
 						<div className="section row">
 							<div className="col-xs-12">
-								<Field name="details" component={renderDetails} {...details}/>
+								<Field name="details" component={renderDetails}/>
 							</div>
 						</div>
 
