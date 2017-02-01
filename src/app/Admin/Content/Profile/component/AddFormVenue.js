@@ -4,39 +4,16 @@ import Dropdown from 'react-toolbox/lib/dropdown'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
 
-import { renderIsAllowedOutside, renderIsProvideOutside, renderAreaQuantity, renderDetails } from './VenueForm'
-
-const type = [
-  { value: 'Church', 				label: 'Church' },
-  { value: 'Resort', 				label: 'Resort'},
-  { value: 'Hotel', 				label: 'Hotel' },
-  { value: 'Event Hall/Ballroom', 	label: 'Event Hall/Ballroom'},
-  { value: 'Club/Bar', 				label: 'Club/Bar'},
-  { value: 'Recreation', 			label: 'Recreation'},
-  { value: 'Kids', 					label: 'Kids'},
-  { value: 'Restaurant', 			label: 'Restaurant'},
-  { value: 'Garden/Tent', 			label: 'Garden/Tent'},
-  { value: 'Museum/Zoo', 			label: 'Museum/Zoo'},
-  { value: 'Other', 				label: 'Other'}
-];
-
-const cateredTo = [
-  { value: 'Wedding Ceremony', 		label: 'Wedding Ceremony' },
-  { value: 'Wedding Reception', 	label: 'Wedding Reception'},
-  { value: 'Corporate Events', 		label: 'Corporate Events' },
-  { value: 'Adult Birthdays', 		label: 'Adult Birthdays'},
-  { value: 'Children Birthdays', 	label: 'Children Birthdays'},
-  { value: 'Bachelor Parties', 		label: 'Bachelor Parties'},
-  { value: 'Bachelorette Parties', 	label: 'Bachelorette Parties'},
-  { value: 'Dinner Parties', 		label: 'Dinner Parties'},
-  { value: 'Baby Showers', 			label: 'Baby Showers'},
-  { value: 'Honey Moon', 			label: 'Honey Moon'},
-  { value: 'Concert', 				label: 'Concert'},
-  { value: 'Private Parties', 		label: 'Private Parties'}
-];
+import * as component from './VenueForm'
 
 class AddFormVenue extends Component {
 
+	handleOnSubmit = () => {
+		console.log('foo')
+		console.log(this.props.handleSubmit( data => {
+			return data	
+		} ))
+	}
     // shouldComponentUpdate(nextProps) {
     //     return  this.props.type  	    	!== nextProps.type  			||
 	// 			this.props.cateredTo       	!== nextProps.cateredTo 		||
@@ -92,31 +69,34 @@ class AddFormVenue extends Component {
 					<div className="panel-body p25">
 						<div className="section row">
 							<div className="col-xs-6">
+								<Field name="type" component={component.renderType}/>
 							</div>
 							<div className="col-xs-6">
+								<Field name="cateredTo" component={component.renderCateredTo}/>
 							</div>
 						</div>
 						<div className="section row">
 							<div className="col-xs-4">
-								<Field name="isAllowedOutside" component={renderIsAllowedOutside}/>
+								<Field name="isAllowedOutside" component={component.renderIsAllowedOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Field name="isProvideOutside" component={renderIsProvideOutside}/>
+								<Field name="isProvideOutside" component={component.renderIsProvideOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Field name="areaQuantity" component={renderAreaQuantity}/>
+								<Field name="areaQuantity" component={component.renderAreaQuantity}/>
 							</div>
 						</div>
 
 						<div className="section row">
 							<div className="col-xs-12">
-								<Field name="details" component={renderDetails}/>
+								<Field name="details" component={component.renderDetails}/>
 							</div>
 						</div>
 
 					</div>
 
 					<div className="panel-footer text-center">
+						<button type="button" className="button btn-default" onClick={this.handleOnSubmit}>Submit</button>
 						<button type="button" className="button btn-default" onClick={this.props.handleHide}>Close</button>
 					</div>
 
