@@ -12,23 +12,9 @@ class AddFormVenue extends Component {
 		console.log(data)
 		console.log('foo')
 	}
-    // shouldComponentUpdate(nextProps) {
-    //     return  this.props.type  	    	!== nextProps.type  			||
-	// 			this.props.cateredTo       	!== nextProps.cateredTo 		||
-	// 			this.props.isAllowedUnit    !== nextProps.isAllowedUnit   	||
-    //             this.props.isProvideOutside !== nextProps.isProvideOutside	||
-    //             this.props.details   		!== nextProps.details;
-    // }
+
     render() {
 		const { 
-			fields: { 
-				type,
-				cateredTo,
-				isAllowedOutside,
-				isProvideOutside,
-				areaQuantity,
-				details
-			}, 
 			handleSubmit, 
 			onSubmit 
 		} = this.props
@@ -67,12 +53,15 @@ class AddFormVenue extends Component {
 					<div className="panel-body p25">
 						<div className="section row">
 							<div className="col-xs-6">
+								<p>Venue Type</p>
 								<Field name="type" component={component.renderType}/>
 							</div>
 							<div className="col-xs-6">
+								<p>Events Catered To</p>
 								<Field name="cateredTo" component={component.renderCateredTo}/>
 							</div>
 						</div>
+						<br/>
 						<div className="section row">
 							<div className="col-xs-4">
 								<Field name="isAllowedOutside" component={component.renderIsAllowedOutside}/>
@@ -84,7 +73,7 @@ class AddFormVenue extends Component {
 								<Field name="areaQuantity" component={component.renderAreaQuantity}/>
 							</div>
 						</div>
-
+						<br/>
 						<div className="section row">
 							<div className="col-xs-12">
 								<Field name="details" component={component.renderDetails}/>
@@ -94,7 +83,7 @@ class AddFormVenue extends Component {
 					</div>
 
 					<div className="panel-footer text-center">
-						<button type="button" className="button btn-default" onClick={handleSubmit(data => this.handleOnSubmit(data))}>Submit</button>
+						<button type="button" className="button btn-default" onClick={this.props.handleSubmit(data => this.handleOnSubmit(data))}>Submit</button>
 						<button type="button" className="button btn-default" onClick={this.props.handleHide}>Close</button>
 					</div>
 
@@ -106,14 +95,6 @@ class AddFormVenue extends Component {
 
 
 export default AddFormVenue = reduxForm({
-	form: 'addFormVenue',
-    fields: [
-        'type',
-        'cateredTo',
-        'isAllowedOutside',
-		'isProvideOutside',
-		'areaQuantity',
-        'details'
-	]
+	form: 'addFormVenue'
 })(AddFormVenue)
 

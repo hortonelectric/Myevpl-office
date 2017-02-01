@@ -61,8 +61,8 @@ export const renderCateredTo = (field) => {
 export const renderIsAllowedOutside = (field) => {
 
 	return (
-		<checkbox
-			label="allow outside catering"
+		<Checkbox
+			label="Allow Outside Catering"
 			onChange={field.input.onchange}
 			checked={field.input.value ? true : false}
 		/>
