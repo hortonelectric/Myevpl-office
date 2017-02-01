@@ -1,9 +1,8 @@
 import React,{Component} from 'react'
+import { Field, reduxForm } from 'redux-form'
+import Dropdown from 'react-toolbox/lib/dropdown'
 
-import Dropdown from 'react-toolbox/lib/dropdown';
-import Checkbox from 'react-toolbox/lib/checkbox';
-import Input from 'react-toolbox/lib/input';
-
+import { renderIsAllowedOutside, renderIsProvideOutside, renderAreaQuantity, renderDetails } from './VenueForm'
 
 const type = [
   { value: 'Church', 				label: 'Church' },
@@ -34,7 +33,7 @@ const cateredTo = [
   { value: 'Private Parties', 		label: 'Private Parties'}
 ];
 
-export default class AddForm extends Component {
+class AddFormVenue extends Component {
 
     // shouldComponentUpdate(nextProps) {
     //     return  this.props.type  	    	!== nextProps.type  			||
@@ -45,8 +44,7 @@ export default class AddForm extends Component {
     // }
 
     render() {
-
-        const {
+		const { 
 			fields: { 
 				type,
 				cateredTo,
@@ -54,8 +52,21 @@ export default class AddForm extends Component {
 				isProvideOutside,
 				areaQuantity,
 				details
-			}
-		} = this.props;
+			}, 
+			handleSubmit, 
+			onSubmit 
+		} = this.props
+
+        // const {
+		// 	fields: { 
+		// 		type,
+		// 		cateredTo,
+		// 		isAllowedUnit,
+		// 		isProvideOutside,
+		// 		areaQuantity,
+		// 		details
+		// 	}
+		// } = this.props;
         //
 		// const SubmitButton = () => {
 		// 	if(this.props.loader){
@@ -100,34 +111,19 @@ export default class AddForm extends Component {
 						</div>
 						<div className="section row">
 							<div className="col-xs-4">
-								<Checkbox
-									label="Allow Outside Catering"
-									{...isAllowedUnit}
-								/>
+								<Field name="isAllowedOutside" component={renderIsAllowedOutside} {...isAllowedOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Checkbox
-									label="Provide Outside Catering"
-									{...isProvideOutside}
-								/>
+								<Field name="isProvideOutside" component={renderIsProvideOutside} {...isProvideOutside}/>
 							</div>
 							<div className="col-xs-4">
-								<Input 
-									type='number' 
-									label='Number of Event Areas' 
-									{...areaQuantity}
-								/>
+								<Field name="areaQuantity" component={renderAreaQuantity} {...areaQuantity}/>
 							</div>
 						</div>
 
 						<div className="section row">
 							<div className="col-xs-12">
-								<Input 
-									type='text' 
-									multiline={ true }
-									label='Event Areas Details' 
-									{...details}
-								/>
+								<Field name="details" component={renderDetails} {...details}/>
 							</div>
 						</div>
 
@@ -142,3 +138,17 @@ export default class AddForm extends Component {
 
     }
 }
+
+
+export default AddFormVenue = reduxForm({
+	form: 'addFormVenue',
+    fields: [
+        'type',
+        'cateredTo',
+        'isAllowedOutside',
+		'isProvideOutside',
+		'areaQuantity',
+        'details'
+	]
+})(AddFormVenue)
+
