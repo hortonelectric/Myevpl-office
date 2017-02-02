@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import { Field, reduxForm } from 'redux-form'
-import Dropdown from 'react-toolbox/lib/dropdown'
 import { connect } from 'react-redux'
+import Dropdown from 'react-toolbox/lib/dropdown'
 
 import { addProfile } from '../middleware/middleware'
+import { changeAddProfileFormType } from '../action/action'
 
 import Personal from '../component/AddForm/Personal'
 import Venue from '../component/AddForm/Venue'
