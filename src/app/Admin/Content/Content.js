@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { connect } from 'react-redux'
 
 class Content extends React.Component {
     render() {
@@ -12,4 +13,6 @@ class Content extends React.Component {
     }
 }
 
-export default Content
+export default connect( state => ({
+	value : state.admin.profile.list
+}) )(Content)

@@ -13,6 +13,17 @@ export const listProfiles = (cb) => {
         })
 }
 
+export const addProfile = (data, cb) => {
+	// const authorization = sessionStorage.getItem('header')
+	request
+        .post(`${api}profile`)
+        // .set('Authorization', authorization)
+        .send(data)
+        .end((error, response) => {
+            cb(response.status, response.body)
+        })
+}
+
 export const editProfile = (id, data, cb) => {
 	const authorization = sessionStorage.getItem('header')
 	request
@@ -34,24 +45,25 @@ export const  deleteProfile = (id, cb) => {
         })
 }
 
-export const editPicture = (id, data, cb) => {
-    request
-        .put(`${api}employees/${id}/photo`)
-        .send(data)
-        .end((error, response) => {
-            if(response.status === 500) {
-                addPicture(id, data, cb)
-            }else{
-                cb(response.status, response.body)
-            }
-        })
-}
-
-const addPicture = (id, data, cb) => {
-    request
-        .post(`${api}employees/${id}/photo`)
-        .send(data)
-        .end((error, response) => {
-            cb(response.status, response.body)
-        })
-}
+//
+// export const editPicture = (id, data, cb) => {
+//     request
+//         .put(`${api}employees/${id}/photo`)
+//         .send(data)
+//         .end((error, response) => {
+//             if(response.status === 500) {
+//                 addPicture(id, data, cb)
+//             }else{
+//                 cb(response.status, response.body)
+//             }
+//         })
+// }
+//
+// const addPicture = (id, data, cb) => {
+//     request
+//         .post(`${api}employees/${id}/photo`)
+//         .send(data)
+//         .end((error, response) => {
+//             cb(response.status, response.body)
+//         })
+// }

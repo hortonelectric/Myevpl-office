@@ -28,7 +28,8 @@ const store = combineReducers({
 		  selected    	: Admin_Profile.selected,
 			  loader	: combineReducers({
 				table		: Admin_ProfileLoader.tableLoader,
-			})    
+			}),
+			addProfileFormType : Admin_Profile.addProfileFormType
 		}),
 
 		//Admin Store

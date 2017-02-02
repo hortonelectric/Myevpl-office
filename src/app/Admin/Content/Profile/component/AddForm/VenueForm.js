@@ -1,83 +1,106 @@
 import React,{Component} from 'react'
+import Dropdown from 'react-toolbox/lib/dropdown'
+import Checkbox from 'react-toolbox/lib/checkbox'
+import Input from 'react-toolbox/lib/input'
 
-export default class Basic extends Component {
+const type = [
+  { value: 'Church', 				label: 'Church' },
+  { value: 'Resort', 				label: 'Resort'},
+  { value: 'Hotel', 				label: 'Hotel' },
+  { value: 'Event Hall/Ballroom', 	label: 'Event Hall/Ballroom'},
+  { value: 'Club/Bar', 				label: 'Club/Bar'},
+  { value: 'Recreation', 			label: 'Recreation'},
+  { value: 'Kids', 					label: 'Kids'},
+  { value: 'Restaurant', 			label: 'Restaurant'},
+  { value: 'Garden/Tent', 			label: 'Garden/Tent'},
+  { value: 'Museum/Zoo', 			label: 'Museum/Zoo'},
+  { value: 'Other', 				label: 'Other'}
+];
 
-    shouldComponentUpdate(nextProps) {
-        return  this.props.type  	    	!== nextProps.type  			||
-				this.props.cateredTo       	!== nextProps.cateredTo 		||
-				this.props.isAllowedUnit    !== nextProps.isAllowedUnit   	||
-                this.props.isProvideOutside !== nextProps.isProvideOutside	||
-                this.props.details   		!== nextProps.details;
-    }
+const cateredTo = [
+  { value: 'Wedding Ceremony', 		label: 'Wedding Ceremony' },
+  { value: 'Wedding Reception', 	label: 'Wedding Reception'},
+  { value: 'Corporate Events', 		label: 'Corporate Events' },
+  { value: 'Adult Birthdays', 		label: 'Adult Birthdays'},
+  { value: 'Children Birthdays', 	label: 'Children Birthdays'},
+  { value: 'Bachelor Parties', 		label: 'Bachelor Parties'},
+  { value: 'Bachelorette Parties', 	label: 'Bachelorette Parties'},
+  { value: 'Dinner Parties', 		label: 'Dinner Parties'},
+  { value: 'Baby Showers', 			label: 'Baby Showers'},
+  { value: 'Honey Moon', 			label: 'Honey Moon'},
+  { value: 'Concert', 				label: 'Concert'},
+  { value: 'Private Parties', 		label: 'Private Parties'}
+];
 
-    errorDescription(input) {
-        return this.props.ajaxErrors[input] ?
-            this.props.ajaxErrors[input].map(function(error){
-                return <em className="state-error" key="">{error}</em>
-            }) : ''
-    }
 
-    render() {
-        return (
-            <div className="section">
+export const renderVenueType = (field) => {
 
-                <div className="section row">
-                    <div className="col-xs-12 col-md-4">
-                        <label htmlFor="first"
-						    className={`field prepend-icon ${this.props.ajaxErrors.first ? 'state-error': ''}`}
-                        >
-                            <input type="text"
-                                   name="first"
-                                   id="first"
-                                   className="gui-input"
-                                   placeholder="First Name"
-									{...this.props.first}
+	return (
+		<Dropdown
+			auto
+			onChange={field.input.onChange}
+			source={type}
+			value={field.input.value}
+		/>
+	)
+}
 
-                            />
-                            <label htmlFor="first" className="field-icon">
-                                <i className="fa fa-user" />
-                            </label>
-                        </label>
-                        { this.errorDescription('first') }
-                    </div>
-                    <div className="col-md-12 col-md-4">
-                        <label htmlFor="middle"
-						    className={`field prepend-icon ${this.props.ajaxErrors.middle ? 'state-error': ''}`}
-                        >
-                            <input type="text"
-                                   name="middle"
-                                   id="middle"
-                                   className="gui-input"
-                                   placeholder="Middle Name"
-									{...this.props.middle}
+export const renderCateredTo = (field) => {
 
-                            />
-							<label htmlFor="middle" className="field-icon">
-								<i className="fa fa-user" />
-							</label>
-                        </label>
-                        { this.errorDescription('middle') }
-                    </div>
-                    <div className="col-xs-12 col-md-4">
-                        <label htmlFor="last"
-						    className={`field prepend-icon ${this.props.ajaxErrors.last ? 'state-error': ''}`}
-                        >
-                            <input type="text"
-                                   name="last"
-                                   id="last"
-                                   className="gui-input"
-                                   placeholder="Last Name"
-									{...this.props.last}
-                            />
-							<label htmlFor="last" className="field-icon">
-								<i className="fa fa-user" />
-							</label>
-                        </label>
-                        { this.errorDescription('last') }
-                    </div>
-                </div>
+	return (
+		<Dropdown
+			auto
+			onChange={field.input.onChange}
+			source={cateredTo}
+			value={field.input.value}
+		/>
+	)
+}
 
-            </div>
-        )
-    }
+
+export const renderIsAllowedOutside = (field) => {
+
+	return (
+		<Checkbox
+			label="Allow Outside Catering"
+			onChange={field.input.onChange}
+			checked={field.input.value ? true : false}
+		/>
+	)
+}
+
+export const renderIsProvideOutside = (field) => {
+
+	return (
+		<Checkbox
+			label="Provide Outside Catering"
+			onChange={field.input.onChange}
+			checked={field.input.value ? true : false}
+		/>
+	)
+}
+
+export const renderAreaQuantity = (field) => {
+
+	return (
+		<Input 
+			type='number' 
+			value={field.input.value}
+			onChange={field.input.onChange}
+			label='Number of Event Areas' 
+		/>
+	)
+}
+
+export const renderDetails = (field) => {
+
+	return (
+		<Input 
+			type='text' 
+			multiline={true}
+			value={field.input.value}
+			onChange={field.input.onChange}
+			label='Event Areas Details' 
+		/>
+	)
 }
