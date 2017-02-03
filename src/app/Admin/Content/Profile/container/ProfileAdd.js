@@ -13,8 +13,9 @@ import Catering from '../component/AddForm/Catering'
 class ProfileAdd extends Component {
 
     _handleSubmitForm = (value) => {
+		const payload = Object.assign({}, value, { type: this.props.profileType })
 		this.props.dispatch(
-			addProfile(value)	
+			addProfile(payload)	
 		)
     }
 	

@@ -9,19 +9,19 @@ import * as errorAction from '../action/errorAction'
 import { handle } from './handleResponse'
 import {logout} from '../../../User/middleware/middleware'
 
-// export const listProfiles = () => {
-//
-//     return dispatch => {
-//
-// 		dispatch(loaderAction.tableLoaderOn())
-//         ajax.listProfiles((status, response) => {
-//             if(status === 401) dispatch(handleUnauthorized())
-//             if(status === 200) dispatch(action.listProfiles(response.data))
-// 			dispatch(loaderAction.tableLoaderOff())
-//         })
-//
-//     }
-// }
+export const listProfiles = () => {
+
+    return dispatch => {
+
+		dispatch(loaderAction.tableLoaderOn())
+        ajax.listProfiles((status, response) => {
+            if(status === 401) dispatch(handleUnauthorized())
+            if(status === 200) dispatch(action.listProfiles(response.data))
+			dispatch(loaderAction.tableLoaderOff())
+        })
+
+    }
+}
 
 export const addProfile = (payload) => {
 
