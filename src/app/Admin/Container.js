@@ -7,10 +7,13 @@ import Alert from './Alert/Alert'
 import ServerMaintenance from './Server/ServerMaintenance'
 
 class Container extends Component {
+    toggleDrawer() {
+
+    }
     render() {
 		return (
 			<div>
-				<Header />	
+				<Header />
 				<Menu />
 				<Content children={this.props.children}></Content>
 				<Alert />
