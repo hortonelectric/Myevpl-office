@@ -5,8 +5,13 @@ import Table from 'react-toolbox/lib/table'
 import { listProfiles } from '../Admin/Content/Profile/middleware/middleware'
 
 const ProfileModel = {
-	name: 	{ type: 'string' },
-	type: 	{ type: 'string' }
+	name			: { type: 'string' },
+	type			: { type: 'string' },
+	cateredTo		: { type: 'string' },
+	contactNumber	: { type: 'string' },
+	email			: { type: 'string' },
+	city			: { type: 'string' },
+	country			: { type: 'string' }
 }
 
 class Home extends Component {
@@ -20,9 +25,17 @@ class Home extends Component {
     render() {
 		console.log(this.props)
 		return (
+			<section>
 			<div>
-				<h1>HomeHome</h1>
+				<h1>Profile List</h1>
 			</div>
+		    <Table
+				className="p25"
+				selectable={false}
+				model={ProfileModel}
+				source={this.props.profiles}
+			/>		
+			</section>
 	   )
 	}
 }
