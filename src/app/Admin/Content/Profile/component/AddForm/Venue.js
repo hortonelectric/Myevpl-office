@@ -1,5 +1,5 @@
 import React,{Component} from 'react'
-import { Field } from 'redux-form'
+import { Field,	FieldArray  } from 'redux-form'
 import Dropdown from 'react-toolbox/lib/dropdown'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
@@ -13,14 +13,13 @@ export default class Venue extends Component {
 			<div>
 				<div className="panel-body p25">
 					<h3>Venue Form</h3>
+					<br />
+					<FieldArray name="cateredTo" component={renderCateredToFieldArray} />
+					<br />
 					<div className="section row">
 						<div className="col-xs-6">
 							<p>Venue Type</p>
-							<Field name="venueType" component={renderVenueType}/>
-						</div>
-						<div className="col-xs-6">
-							<p>Events Catered To</p>
-							<Field name="cateredTo" component={renderCateredTo}/>
+							<Field name="venuetype" component={renderVenueType}/>
 						</div>
 					</div>
 					<br/>
@@ -74,17 +73,17 @@ export const renderVenueType = (field) => {
 	)
 }
 
-export const renderCateredTo = (field) => {
-
-	return (
-		<Dropdown
-			auto
-			onChange={field.input.onChange}
-			source={cateredTo}
-			value={field.input.value}
-		/>
-	)
-}
+// export const renderCateredTo = (field) => {
+//
+// 	return (
+// 		<Dropdown
+// 			auto
+// 			onChange={field.input.onChange}
+// 			source={cateredTo}
+// 			value={field.input.value}
+// 		/>
+// 	)
+// }
 
 
 export const renderIsAllowedOutside = (field) => {
@@ -94,6 +93,37 @@ export const renderIsAllowedOutside = (field) => {
 			label="Allow Outside Catering"
 			onChange={field.input.onChange}
 			checked={field.input.value ? true : false}
+		/>
+	)
+}
+
+export const renderCateredToFieldArray = (member, index, fields) => {
+
+	return (
+		<div className="section row">
+			<div className="col-xs-12">
+				<p>Venue Type</p>
+			</div>
+			<div className="col-xs-4">
+				<Field name={`${member}.Wedding Ceremony`} component={renderCateredTo} label="Wedding Ceremony"/>
+			</div>
+			<div className="col-xs-4">
+				<Field name={`${member}.Wedding Reception`} component={renderCateredTo} label="Wedding Reception"/>
+			</div>
+			<div className="col-xs-4">
+				<Field name={`${member}.Corporate Events`} component={renderCateredTo} label="Corporate Events"/>
+			</div>
+		</div>
+	)
+}
+
+export const renderCateredTo = (field) => {
+
+	return (
+		<Checkbox
+			onChange={field.input.onChange}
+			checked={field.input.value ? true : false}
+			label={field.label}
 		/>
 	)
 }

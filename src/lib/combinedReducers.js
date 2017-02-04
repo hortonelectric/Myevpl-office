@@ -15,6 +15,8 @@ import * as Admin_User from '../app/Admin/User/reducer/reducer'
 import * as Admin_UserError from '../app/Admin/User/reducer/errorReducer'
 import * as Admin_UserLoader from '../app/Admin/User/reducer/loaderReducer'
 
+import * as Profile_Filter from '../app/Home/ProfileTableFilter/reducer'
+
 import { alert } from '../app/Admin/Alert/reducer'
 
 const store = combineReducers({
@@ -68,6 +70,14 @@ const store = combineReducers({
 	
 	}),
 	
+    //Profile Filter
+	profile : combineReducers({
+		filter : combineReducers({
+			profileType : Profile_Filter.profileType,
+			cateredTo 	: Profile_Filter.cateredTo
+		})	
+	}),
+
     //redux-form
     form
 })
