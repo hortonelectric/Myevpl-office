@@ -14,7 +14,7 @@ export const cateredTo = [
 ];
 
 
-const type = [
+export const venueType = [
   { value: 'Church', 				label: 'Church' },
   { value: 'Resort', 				label: 'Resort'},
   { value: 'Hotel', 				label: 'Hotel' },

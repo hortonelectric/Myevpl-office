@@ -15,7 +15,7 @@ import * as Admin_User from '../app/Admin/User/reducer/reducer'
 import * as Admin_UserError from '../app/Admin/User/reducer/errorReducer'
 import * as Admin_UserLoader from '../app/Admin/User/reducer/loaderReducer'
 
-import * as Profile_Filter from '../app/Home/ProfileTableFilter/reducer'
+import * as Profile_Filter from '../app/Home/ProfileFilterTable/reducer'
 
 import { alert } from '../app/Admin/Alert/reducer'
 

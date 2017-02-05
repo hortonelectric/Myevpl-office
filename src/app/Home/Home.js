@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import Table from 'react-toolbox/lib/table'
 
 import { listProfiles } from '../Admin/Content/Profile/middleware/middleware'
+import ProfileFilterTable from './ProfileFilterTable/ProfileFilterTable'
+import filter from './ProfileFilterTable/filter'
 
 const ProfileModel = {
 	name			: { type: 'string' },
@@ -15,6 +17,10 @@ const ProfileModel = {
 
 class Home extends Component {
 
+	_fitlerTable = () => {
+		return filter(this.props.profiles, this.props.filter)	
+	}
+
 	componentWillMount() {
 		this.props.dispatch(
 			listProfiles()	
@@ -24,20 +30,28 @@ class Home extends Component {
     render() {
 		return (
 			<section>
-			<div>
-				<h1>Profile List</h1>
-			</div>
-		    <Table
-				className="p25"
-				selectable={false}
-				model={ProfileModel}
-				source={this.props.profiles}
-			/>		
+				<div>
+					<h1>Profile List</h1>
+				</div>
+				<Table
+					className="p25"
+					selectable={false}
+					model={ProfileModel}
+					source={this._fitlerTable()}
+				/>		
+				<br />
+				<br />
+				<h3>Filters</h3>
+				<ProfileFilterTable />
 			</section>
 	   )
 	}
 }
 
 export default connect( state => ({
-	profiles : state.admin.profile.list
+	profiles : state.admin.profile.list,
+	filter : {
+		profileType : state.profile.filter.profileType,
+		cateredTo 	: state.profile.filter.cateredTo
+	}
 }) )(Home)

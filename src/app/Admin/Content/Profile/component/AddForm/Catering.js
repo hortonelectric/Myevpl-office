@@ -4,7 +4,7 @@ import Dropdown from 'react-toolbox/lib/dropdown'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
 
-import { cateredTo } from '../../../../../../lib/cateredToList'
+import { cateredTo } from '../../../../../../lib/profileFieldList'
 
 export default class Catering extends Component {
 

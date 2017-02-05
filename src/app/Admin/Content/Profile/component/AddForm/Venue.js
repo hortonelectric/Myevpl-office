@@ -5,7 +5,7 @@ import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
 import _ from 'lodash'
 
-import { cateredTo } from '../../../../../../lib/cateredToList'
+import { cateredTo } from '../../../../../../lib/profileFieldList'
 
 export default class Venue extends Component {
 
