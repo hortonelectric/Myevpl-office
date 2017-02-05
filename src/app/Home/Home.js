@@ -7,7 +7,6 @@ import { listProfiles } from '../Admin/Content/Profile/middleware/middleware'
 const ProfileModel = {
 	name			: { type: 'string' },
 	type			: { type: 'string' },
-	cateredTo		: { type: 'string' },
 	contactNumber	: { type: 'string' },
 	email			: { type: 'string' },
 	city			: { type: 'string' },

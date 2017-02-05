@@ -15,14 +15,87 @@ export default class Venue extends Component {
 				<div className="panel-body p25">
 					<h3>Venue Form</h3>
 					<br />
-					{renderCateredToFieldArray(this.props)}
-					<br />
 					<div className="section row">
-						<div className="col-xs-6">
-							<p>Venue Type</p>
-							<Field name="venuetype" component={renderVenueType}/>
+						<div className="col-xs-12">
+							<p>Events Catered To</p>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Wedding Ceremony" component={renderCheckboxes} label="Wedding Ceremony"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Wedding Reception" component={renderCheckboxes} label="Wedding Reception"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Corporate Events" component={renderCheckboxes} label="Corporate Events"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Adult Birthdays" component={renderCheckboxes} label="Adult Birthdays"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Children Birthdays" component={renderCheckboxes} label="Children Birthdays"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Bachelor Parties" component={renderCheckboxes} label="Bachelor Parties"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Bachelorette Parties" component={renderCheckboxes} label="Bachelorette Parties"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Dinner Parties" component={renderCheckboxes} label="Dinner Parties"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Baby Showers" component={renderCheckboxes} label="Baby Showers"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Honey Moon" component={renderCheckboxes} label="Honey Moon"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Concert" component={renderCheckboxes} label="Concert"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Private Parties" component={renderCheckboxes} label="Private Parties"/>
 						</div>
 					</div>
+					<br />
+					<div className="section row">
+						<div className="col-xs-12">
+							<p>Venue Type</p>
+							<div className="col-xs-4">
+								<Field name="venueType.Church" component={renderCheckboxes} label="Church"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Resort" component={renderCheckboxes} label="Resort"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Hotel" component={renderCheckboxes} label="Hotel"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Event Hall/Ballroom" component={renderCheckboxes} label="Event Hall/Ballroom"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Club/Bar" component={renderCheckboxes} label="Club/Bar"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Recreation" component={renderCheckboxes} label="Recreation"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Kids" component={renderCheckboxes} label="Kids"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Restaurant" component={renderCheckboxes} label="Restaurant"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Garden/Tent" component={renderCheckboxes} label="Garden/Tent"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Museum/Zoo" component={renderCheckboxes} label="Museum/Zoo"/>
+							</div>
+							<div className="col-xs-4">
+								<Field name="venueType.Other" component={renderCheckboxes} label="Other"/>
+							</div>
+						</div>
+					</div>
+					<br/>
 					<br/>
 					<div className="section row">
 						<div className="col-xs-4">
@@ -61,20 +134,91 @@ const type = [
   { value: 'Other', 				label: 'Other'}
 ];
 
-
-export const renderVenueType = (field) => {
-
+const renderCheckboxes = (field) => {
 	return (
-		<Dropdown
-			auto
+		<Checkbox
+			label={field.label}
 			onChange={field.input.onChange}
-			source={type}
-			value={field.input.value}
+			checked={field.input.value ? true : false}
 		/>
 	)
+
 }
 
-export const renderIsAllowedOutside = (field) => {
+// export const renderCateredToArray = (props) => {
+//
+// 	return _.map(cateredTo, (data, index) => {
+// 		return (
+// 			<div className="col-xs-4" key={index}>
+// 				<Field name={`cateredTo.${data.value}`} component={renderCheckboxes} label={data.label}/>
+// 			</div>
+// 		)	
+// 	})	
+// }
+
+// export const renderVenueTypeArray = (props) => {
+//
+// 	return _.map(type, (data, index) => {
+// 		return (
+// 			<div className="col-xs-4" key={index}>
+// 				<Field name={`venueType.${data.value}`} component={renderCheckboxes} label={data.label}/>
+// 			</div>
+// 		)	
+// 	})	
+// }
+
+// export const renderVenueType = (field) => {
+//
+// 	return (
+// 		<Dropdown
+// 			auto
+// 			onChange={field.input.onChange}
+// 			source={type}
+// 			value={field.input.value}
+// 		/>
+// 	)
+// }
+
+// export const renderCateredToFieldArray = (props) => {
+//
+// 	const checkValueIfDeclared = () => {
+// 		return props.value ? true : false	
+// 	}
+//
+// 	const checkValueIntoArray = (value) => {
+// 		return checkValueIfDeclared() ?  _.find(props.value.cateredTo, data => data === value) : false
+// 	}
+//
+// 	const handleOnChange = (index, value) => {
+// 		return checkValueIntoArray(value) ? props.array.remove('cateredTo', index) : props.array.insert('cateredTo', index, value) 
+// 	
+// 	}
+//
+// 	const renderDropdowns = () => {
+// 		return _.map(cateredTo, (data, index) => {
+// 			return (
+// 				<div className="col-xs-4" key={index}>
+// 					<Checkbox
+// 						onChange={() => handleOnChange(index, data.value)}
+// 						checked={ checkValueIntoArray(data.value) ? true : false }
+// 						label={ data.value }
+// 					/>
+// 				</div>
+// 			)	
+// 		})	
+// 	}
+//
+// 	return (
+// 		<div className="section row">
+// 			<div className="col-xs-12">
+// 				<p>Venue Type</p>
+// 			</div>
+// 			{renderDropdowns()}
+// 		</div>
+// 	)
+// }
+
+const renderIsAllowedOutside = (field) => {
 
 	return (
 		<Checkbox
@@ -85,46 +229,7 @@ export const renderIsAllowedOutside = (field) => {
 	)
 }
 
-export const renderCateredToFieldArray = (props) => {
-
-	const checkValueIfDeclared = () => {
-		return props.value ? true : false	
-	}
-
-	const checkValueIntoArray = (value) => {
-		return checkValueIfDeclared() ?  _.find(props.value.cateredTo, data => data === value) : false
-	}
-
-	const handleOnChange = (index, value) => {
-		return checkValueIntoArray(value) ? props.array.remove('cateredTo', index) : props.array.insert('cateredTo', index, value) 
-	
-	}
-
-	const renderDropdowns = () => {
-		return _.map(cateredTo, (data, index) => {
-			return (
-				<div className="col-xs-4" key={index}>
-					<Checkbox
-						onChange={() => handleOnChange(index, data.value)}
-						checked={ checkValueIntoArray(data.value) ? true : false }
-						label={ data.value }
-					/>
-				</div>
-			)	
-		})	
-	}
-
-	return (
-		<div className="section row">
-			<div className="col-xs-12">
-				<p>Venue Type</p>
-			</div>
-			{renderDropdowns()}
-		</div>
-	)
-}
-
-export const renderIsProvideOutside = (field) => {
+const renderIsProvideOutside = (field) => {
 
 	return (
 		<Checkbox
@@ -135,7 +240,7 @@ export const renderIsProvideOutside = (field) => {
 	)
 }
 
-export const renderAreaQuantity = (field) => {
+const renderAreaQuantity = (field) => {
 
 	return (
 		<Input 
@@ -147,7 +252,7 @@ export const renderAreaQuantity = (field) => {
 	)
 }
 
-export const renderDetails = (field) => {
+const renderDetails = (field) => {
 
 	return (
 		<Input 

@@ -12,3 +12,18 @@ export const cateredTo = [
   { value: 'Concert', 				label: 'Concert'},
   { value: 'Private Parties', 		label: 'Private Parties'}
 ];
+
+
+const type = [
+  { value: 'Church', 				label: 'Church' },
+  { value: 'Resort', 				label: 'Resort'},
+  { value: 'Hotel', 				label: 'Hotel' },
+  { value: 'Event Hall/Ballroom', 	label: 'Event Hall/Ballroom'},
+  { value: 'Club/Bar', 				label: 'Club/Bar'},
+  { value: 'Recreation', 			label: 'Recreation'},
+  { value: 'Kids', 					label: 'Kids'},
+  { value: 'Restaurant', 			label: 'Restaurant'},
+  { value: 'Garden/Tent', 			label: 'Garden/Tent'},
+  { value: 'Museum/Zoo', 			label: 'Museum/Zoo'},
+  { value: 'Other', 				label: 'Other'}
+];

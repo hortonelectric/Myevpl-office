@@ -16,7 +16,42 @@ export default class Catering extends Component {
 					<div className="section row">
 						<div className="col-xs-4">
 							<p>Events Catered To</p>
-							<Field name="cateredTo" component={renderCateredTo}/>
+							<div className="col-xs-12">
+								<p>Venue Type</p>
+								<div className="col-xs-4">
+									<Field name="venueType.Church" component={renderCheckboxes} label="Church"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Resort" component={renderCheckboxes} label="Resort"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Hotel" component={renderCheckboxes} label="Hotel"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Event Hall/Ballroom" component={renderCheckboxes} label="Event Hall/Ballroom"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Club/Bar" component={renderCheckboxes} label="Club/Bar"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Recreation" component={renderCheckboxes} label="Recreation"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Kids" component={renderCheckboxes} label="Kids"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Restaurant" component={renderCheckboxes} label="Restaurant"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Garden/Tent" component={renderCheckboxes} label="Garden/Tent"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Museum/Zoo" component={renderCheckboxes} label="Museum/Zoo"/>
+								</div>
+								<div className="col-xs-4">
+									<Field name="venueType.Other" component={renderCheckboxes} label="Other"/>
+								</div>
+							</div>
 						</div>
 						<div className="col-xs-4">
 							<p>Cuisine Names</p>
@@ -64,7 +99,19 @@ export default class Catering extends Component {
     }
 }
 
-export const renderCateredTo = (field) => {
+
+const renderCheckboxes = (field) => {
+	return (
+		<Checkbox
+			label={field.label}
+			onChange={field.input.onChange}
+			checked={field.input.value ? true : false}
+		/>
+	)
+
+}
+
+const renderCateredTo = (field) => {
 
 	return (
 		<Dropdown
@@ -77,7 +124,7 @@ export const renderCateredTo = (field) => {
 }
 
 
-export const renderCuisines = (field) => {
+const renderCuisines = (field) => {
 
 	return (
 		<Input 
@@ -89,7 +136,7 @@ export const renderCuisines = (field) => {
 	)
 }
 
-export const renderTravelDistance = (field) => {
+const renderTravelDistance = (field) => {
 
 	return (
 		<Input 
@@ -101,7 +148,7 @@ export const renderTravelDistance = (field) => {
 	)
 }
 
-export const renderAverageCostPerPlateMin = (field) => {
+const renderAverageCostPerPlateMin = (field) => {
 
 	return (
 		<Input 
@@ -113,7 +160,7 @@ export const renderAverageCostPerPlateMin = (field) => {
 	)
 }
 
-export const renderAverageCostPerPlateMax = (field) => {
+const renderAverageCostPerPlateMax = (field) => {
 
 	return (
 		<Input 
@@ -125,7 +172,7 @@ export const renderAverageCostPerPlateMax = (field) => {
 	)
 }
 
-export const renderCapacityMin = (field) => {
+const renderCapacityMin = (field) => {
 
 	return (
 		<Input 
@@ -137,7 +184,7 @@ export const renderCapacityMin = (field) => {
 	)
 }
 
-export const renderCapacityMax = (field) => {
+const renderCapacityMax = (field) => {
 
 	return (
 		<Input 
@@ -149,7 +196,7 @@ export const renderCapacityMax = (field) => {
 	)
 }
 
-export const renderMenu = (field) => {
+const renderMenu = (field) => {
 
 	return (
 		<Input 
@@ -162,7 +209,7 @@ export const renderMenu = (field) => {
 	)
 }
 
-export const renderPackage = (field) => {
+const renderPackage = (field) => {
 
 	return (
 		<Input 
