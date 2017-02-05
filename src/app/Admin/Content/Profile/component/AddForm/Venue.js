@@ -14,7 +14,20 @@ export default class Venue extends Component {
 				<div className="panel-body p25">
 					<h3>Venue Form</h3>
 					<br />
-					<FieldArray name="cateredTo" component={renderCateredToFieldArray} />
+					<div className="section row">
+						<div className="col-xs-12">
+							<p>Venue Type</p>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Wedding Ceremony" component={renderCateredTo} label="Wedding Ceremony"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Wedding Reception" component={renderCateredTo} label="Wedding Reception"/>
+						</div>
+						<div className="col-xs-4">
+							<Field name="cateredTo.Corporate Events" component={renderCateredTo} label="Corporate Events"/>
+						</div>
+					</div>
 					<br />
 					<div className="section row">
 						<div className="col-xs-6">
