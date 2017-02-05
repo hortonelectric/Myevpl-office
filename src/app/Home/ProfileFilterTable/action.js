@@ -1,5 +1,6 @@
-export const FILTER_PROFILE_TYPE = 'FILTER_PROFILE_TYPE'
-export const FILTER_CATERED_TO = 'FILTER_CATERED_TO'
+export const FILTER_PROFILE_TYPE 		= 'FILTER_PROFILE_TYPE'
+export const INSERT_FILTER_CATERED_TO 	= 'INSERT_FILTER_CATERED_TO'
+export const REMOVE_FILTER_CATERED_TO 	= 'REMOVE_FILTER_CATERED_TO'
 
 export function changeFilterProfileType (data) {
   return {
@@ -8,9 +9,16 @@ export function changeFilterProfileType (data) {
   }
 }
 
-export function changeFilterCateredTo (data) {
+export function insertFilterCateredTo (data) {
   return {
-    type: FILTER_CATERED_TO,
+    type: INSERT_FILTER_CATERED_TO,
+	  data
+  }
+}
+
+export function removeFilterCateredTo (data) {
+  return {
+    type: REMOVE_FILTER_CATERED_TO,
 	  data
   }
 }

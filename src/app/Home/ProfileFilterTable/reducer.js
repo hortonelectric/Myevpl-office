@@ -10,12 +10,15 @@ export const profileType = (state = 'All', action) => {
   }
 }
 
-export const cateredTo = (state = 'All', action) => {
+export const cateredTo = (state = ['All'], action) => {
   switch (action.type) {
-    case ACTION.FILTER_CATERED_TO :
-      return action.data
+    case ACTION.INSERT_FILTER_CATERED_TO :
+      return [ ...state, action.data ]
 
-    default:
-      return state
+    case ACTION.REMOVE_FILTER_CATERED_TO:
+      return state.filter(item => item !== action.data)
+
+	default:
+		return state
   }
 }

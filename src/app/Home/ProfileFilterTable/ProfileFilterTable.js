@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Dropdown from 'react-toolbox/lib/dropdown'
+import Checkbox from 'react-toolbox/lib/checkbox'
+import _ from 'lodash'
 
 import { cateredTo, venueType } from '../../../lib/profileFieldList'
-import { changeFilterProfileType, changeFilterCateredTo } from './action'
+import { changeFilterProfileType, insertFilterCateredTo, removeFilterCateredTo } from './action'
 
 class Home extends Component {
 
@@ -13,10 +15,37 @@ class Home extends Component {
 		)	
 	}
 
-	_handleCateredToChange = (value) => {
-		this.props.dispatch(
-			changeFilterCateredTo(value)	
-		)	
+	_handleCateredToChange = (field, value) => {
+		if(value){
+			this.props.dispatch(
+				insertFilterCateredTo(field)
+			)
+		}
+		if(!value){
+			this.props.dispatch(
+				removeFilterCateredTo(field)
+			)
+		}
+	}
+
+	_renderCateredToCheckboxes = () => {
+		const checkCateredToFromState = (data) => {
+			return _.find(this.props.cateredTo, value => value === data)	
+		}
+
+		const checkIfChecked = (data) => {
+			return checkCateredToFromState(data) ? true : false
+		}
+
+		return _.map(cateredFilterModel, (data, index) => {
+			return(
+		        <Checkbox
+					checked={checkIfChecked(data.value)}
+			        label={data.label}
+			        onChange={this._handleCateredToChange.bind(this, data.value)}
+				/>	
+			)
+		})
 	}
 
     render() {
@@ -33,12 +62,7 @@ class Home extends Component {
 				</div>
 				<div>
 					<h4>Events Catered To</h4>
-					<Dropdown
-						auto
-						onChange={this._handleCateredToChange}
-						source={cateredFilterModel}
-						value={this.props.cateredTo}
-					/>
+					{this._renderCateredToCheckboxes()}
 				</div>
 				<div>
 					<h4></h4>
