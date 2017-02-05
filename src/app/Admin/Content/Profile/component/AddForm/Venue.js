@@ -3,6 +3,7 @@ import { Field,	FieldArray  } from 'redux-form'
 import Dropdown from 'react-toolbox/lib/dropdown'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import Input from 'react-toolbox/lib/input'
+import _ from 'lodash'
 
 import { cateredTo } from '../../../../../../lib/cateredToList'
 
@@ -14,20 +15,7 @@ export default class Venue extends Component {
 				<div className="panel-body p25">
 					<h3>Venue Form</h3>
 					<br />
-					<div className="section row">
-						<div className="col-xs-12">
-							<p>Venue Type</p>
-						</div>
-						<div className="col-xs-4">
-							<Field name="cateredTo.Wedding Ceremony" component={renderCateredTo} label="Wedding Ceremony"/>
-						</div>
-						<div className="col-xs-4">
-							<Field name="cateredTo.Wedding Reception" component={renderCateredTo} label="Wedding Reception"/>
-						</div>
-						<div className="col-xs-4">
-							<Field name="cateredTo.Corporate Events" component={renderCateredTo} label="Corporate Events"/>
-						</div>
-					</div>
+					{renderCateredToFieldArray(this.props)}
 					<br />
 					<div className="section row">
 						<div className="col-xs-6">
@@ -86,19 +74,6 @@ export const renderVenueType = (field) => {
 	)
 }
 
-// export const renderCateredTo = (field) => {
-//
-// 	return (
-// 		<Dropdown
-// 			auto
-// 			onChange={field.input.onChange}
-// 			source={cateredTo}
-// 			value={field.input.value}
-// 		/>
-// 	)
-// }
-
-
 export const renderIsAllowedOutside = (field) => {
 
 	return (
@@ -110,34 +85,42 @@ export const renderIsAllowedOutside = (field) => {
 	)
 }
 
-export const renderCateredToFieldArray = (member, index, fields) => {
+export const renderCateredToFieldArray = (props) => {
+
+	const checkValueIfDeclared = () => {
+		return props.value ? true : false	
+	}
+
+	const checkValueIntoArray = (value) => {
+		return checkValueIfDeclared() ?  _.find(props.value.cateredTo, data => data === value) : false
+	}
+
+	const handleOnChange = (index, value) => {
+		return checkValueIntoArray(value) ? props.array.remove('cateredTo', index) : props.array.insert('cateredTo', index, value) 
+	
+	}
+
+	const renderDropdowns = () => {
+		return _.map(cateredTo, (data, index) => {
+			return (
+				<div className="col-xs-4" key={index}>
+					<Checkbox
+						onChange={() => handleOnChange(index, data.value)}
+						checked={ checkValueIntoArray(data.value) ? true : false }
+						label={ data.value }
+					/>
+				</div>
+			)	
+		})	
+	}
 
 	return (
 		<div className="section row">
 			<div className="col-xs-12">
 				<p>Venue Type</p>
 			</div>
-			<div className="col-xs-4">
-				<Field name={`${member}.Wedding Ceremony`} component={renderCateredTo} label="Wedding Ceremony"/>
-			</div>
-			<div className="col-xs-4">
-				<Field name={`${member}.Wedding Reception`} component={renderCateredTo} label="Wedding Reception"/>
-			</div>
-			<div className="col-xs-4">
-				<Field name={`${member}.Corporate Events`} component={renderCateredTo} label="Corporate Events"/>
-			</div>
+			{renderDropdowns()}
 		</div>
-	)
-}
-
-export const renderCateredTo = (field) => {
-
-	return (
-		<Checkbox
-			onChange={field.input.onChange}
-			checked={field.input.value ? true : false}
-			label={field.label}
-		/>
 	)
 }
 

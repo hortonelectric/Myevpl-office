@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm, getFormValues  } from 'redux-form'
 import { connect } from 'react-redux'
 import Dropdown from 'react-toolbox/lib/dropdown'
 
@@ -36,6 +36,7 @@ class ProfileAdd extends Component {
 	}
 
     render () {
+		console.log(this.props)
         return (
 			<section>
 				<form>
@@ -69,12 +70,13 @@ const type = [
   { value: 'Catering', 	label: 'Catering'}
 ];
 
-ProfileAdd = connect( state => ({
-	profileType: state.admin.profile.addProfileFormType	
-}) )(ProfileAdd)
-
 ProfileAdd = reduxForm({
 	form: 'AddProfileForm'
 })(ProfileAdd)
+
+ProfileAdd = connect( state => ({
+	profileType: state.admin.profile.addProfileFormType,
+	value: getFormValues('AddProfileForm')(state)
+}) )(ProfileAdd)
 
 export default ProfileAdd
