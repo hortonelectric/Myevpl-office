@@ -64,9 +64,6 @@ class Home extends Component {
 					<h4>Events Catered To</h4>
 					{this._renderCateredToCheckboxes()}
 				</div>
-				<div>
-					<h4></h4>
-				</div>
 			</section>
 	   )
 	}

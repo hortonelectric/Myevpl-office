@@ -41,7 +41,7 @@ class Home extends Component {
 				/>		
 				<br />
 				<br />
-				<h3>Filters</h3>
+				<h2>Filters</h2>
 				<ProfileFilterTable />
 			</section>
 	   )

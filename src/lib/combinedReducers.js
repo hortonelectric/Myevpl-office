@@ -16,6 +16,7 @@ import * as Admin_UserError from '../app/Admin/User/reducer/errorReducer'
 import * as Admin_UserLoader from '../app/Admin/User/reducer/loaderReducer'
 
 import * as Profile_Filter from '../app/Home/ProfileFilterTable/reducer'
+import * as Profile_Filter_Venue from '../app/Home/ProfileFilterTable/Venue/reducer'
 
 import { alert } from '../app/Admin/Alert/reducer'
 
@@ -74,7 +75,12 @@ const store = combineReducers({
 	profile : combineReducers({
 		filter : combineReducers({
 			profileType : Profile_Filter.profileType,
-			cateredTo 	: Profile_Filter.cateredTo
+			cateredTo 	: Profile_Filter.cateredTo,
+			venue 		: combineReducers({
+				isAllowedOutside : Profile_Filter_Venue.isAllowedOutside,
+				isProvideOutside : Profile_Filter_Venue.isProvideOutside,
+				venueType		 : Profile_Filter_Venue.venueType
+			})
 		})	
 	}),
 

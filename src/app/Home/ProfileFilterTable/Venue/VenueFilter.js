@@ -1,45 +1,89 @@
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import Table from 'react-toolbox/lib/table'
+import Dropdown from 'react-toolbox/lib/dropdown'
+import Checkbox from 'react-toolbox/lib/checkbox'
+import _ from 'lodash'
 
-import { listProfiles } from '../Admin/Content/Profile/middleware/middleware'
-
-const ProfileModel = {
-	name			: { type: 'string' },
-	type			: { type: 'string' },
-	cateredTo		: { type: 'string' },
-	contactNumber	: { type: 'string' },
-	email			: { type: 'string' },
-	city			: { type: 'string' },
-	country			: { type: 'string' }
-}
+import { cateredTo, venueType } from '../../../lib/profileFieldList'
+import { changeFilterisAllowedOutside, changeFilterisProvideOutside, insertFilterVeneuType, removeFilterVeneuType } from './action'
 
 class Home extends Component {
 
-	componentWillMount() {
+	_handleProfileTypeChange = (value) => {
 		this.props.dispatch(
-			listProfiles()	
+			changeFilterProfileType(value)	
 		)	
+	}
+
+	_handleVenueTypeChange = (field, value) => {
+		if(value){
+			this.props.dispatch(
+				insertFilterVeneuType(field)
+			)
+		}
+		if(!value){
+			this.props.dispatch(
+				removeFilterVeneuType(field)
+			)
+		}
+	}
+
+	_renderCateredToCheckboxes = () => {
+		const checkCateredToFromState = (data) => {
+			return _.find(this.props.venueType, value => value === data)	
+		}
+
+		const checkIfChecked = (data) => {
+			return checkCateredToFromState(data) ? true : false
+		}
+
+		return _.map(venueTypeFilterModel, (data, index) => { return(
+		        <Checkbox
+					checked={checkIfChecked(data.value)}
+			        label={data.label}
+			        onChange={this._handleVenueTypeChange.bind(this, data.value)}
+				/>	
+			)
+		})
 	}
 
     render() {
 		return (
 			<section>
-			<div>
-				<h1>Profile List</h1>
-			</div>
-		    <Table
-				className="p25"
-				selectable={false}
-				model={ProfileModel}
-				source={this.props.profiles}
-			/>		
+				<div>
+					<h4>Venue Types</h4>
+					{this._renderVenueTypCheckboxes()}
+				</div>
+				<div>
+					<Checkbox
+						checked={checkIfChecked(data.value)}
+						label={data.label}
+						onChange={this._handleVenueTypeChange.bind(this, data.value)}
+					/>	
+				</div>
+				<div>
+					<Checkbox
+						checked={checkIfChecked(data.value)}
+						label={data.label}
+						onChange={this._handleVenueTypeChange.bind(this, data.value)}
+					/>	
+				</div>
 			</section>
 	   )
 	}
 }
 
+const venueTypeFilterModel = [ { value: 'All', label: 'All'}, ...venueType  ]
+
+const profileTypeFilterModel = [
+  { value: 'All', 	label: 'All' },
+  { value: 'Venue', label: 'Venue'},
+  { value: 'Catering', 	label: 'Catering' }
+];
+
+
 export default connect( state => ({
-	profiles : state.admin.profile.list
+	isAllowedOutside : state.profile.filter.venue.isAllowedOutside,
+	isProvideOutside : state.profile.filter.venue.isProvideOutside,
+	venueType		 : state.profile.filter.venue.venueType,=
 }) )(Home)
