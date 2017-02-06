@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { Field, reduxForm, getFormValues  } from 'redux-form'
 import { connect } from 'react-redux'
 import Dropdown from 'react-toolbox/lib/dropdown'
+import Button from 'react-toolbox/lib/button'
 
 import { addProfile } from '../middleware/middleware'
 import { changeAddProfileFormType,changeAddProfilePage } from '../action/action'
@@ -25,6 +26,15 @@ class ProfileAdd extends Component {
 		)
     }
 
+    _handleProfileTypeButton = (type, page) => {
+		this.props.dispatch(
+			changeAddProfileFormType(type)
+		)
+		this.props.dispatch(
+			changeAddProfilePage(page)
+		)
+    }
+
     _handlePageChange = (value) => {
 		this.props.dispatch(
 			changeAddProfilePage(value)
@@ -45,17 +55,8 @@ class ProfileAdd extends Component {
 			return (
 				<div className="p25">
 					<h3>Select Profile Type</h3>
-					<div className="row">
-						<div className="col-xs-6">
-							<Dropdown
-								auto
-								onChange={this._handleChangeType}
-								source={type}
-								value={this.props.profileType}
-							/>
-						</div>
-					</div>
-					<button type="button" onClick={() => this._handlePageChange('personalForm')}>Next</button>
+					<Button primary raised type="button" onClick={() => this._handleProfileTypeButton('Venue', 'personalForm')} style={{ marginRight: 25 }}>Venue</Button>
+					<Button primary raised type="button" onClick={() => this._handleProfileTypeButton('Catering', 'personalForm')}>Catering</Button>
 				</div>
 			)
 		}
@@ -64,8 +65,9 @@ class ProfileAdd extends Component {
 			return (
 				<div>
 					<Personal {...this.props} />		
-					<button type="button" onClick={() => this._handlePageChange('selectTypeForm')}>Back</button>
-					<button type="button" onClick={() => this._handlePageChange('detailsForm')}>Next</button>
+					<br/>
+					<Button primary raised type="button" onClick={() => this._handlePageChange('selectTypeForm')} style={{ marginRight: 25 }}>Back</Button>
+					<Button primary raised type="button" onClick={() => this._handlePageChange('detailsForm')}>Next</Button>
 				</div>
 			)				
 		}
@@ -74,14 +76,16 @@ class ProfileAdd extends Component {
 			return (
 				<div>
 					{ this._renderProfileType() }		
-					<button type="button" onClick={() => this._handlePageChange('personalForm')}>Back</button>
-					<button type="button" onClick={this.props.handleSubmit(values => this._handleSubmitForm(values))}>Submit</button>
+					<br/>
+					<Button primary raised type="button" onClick={() => this._handlePageChange('personalForm')} style={{ marginRight: 25 }}>Back</Button>
+					<Button primary raised type="button" onClick={this.props.handleSubmit(values => this._handleSubmitForm(values))}>Submit</Button>
 				</div>
 			)				
 		}
 	}
 
     render () {
+		console.log(this.props)
         return (
 			<section>
 				<form>

@@ -52,6 +52,11 @@ export default connect( state => ({
 	profiles : state.admin.profile.list,
 	filter : {
 		profileType : state.profile.filter.profileType,
-		cateredTo 	: state.profile.filter.cateredTo
+		cateredTo 	: state.profile.filter.cateredTo,
+		venue : {
+			isAllowedOutside : state.profile.filter.venue.isAllowedOutside,
+			isProvideOutside : state.profile.filter.venue.isProvideOutside,
+			venueType		 : state.profile.filter.venue.venueType
+		}
 	}
 }) )(Home)

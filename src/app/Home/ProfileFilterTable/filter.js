@@ -1,4 +1,5 @@
 import _ from 'lodash'
+import venueFilter from './Venue/filter'
 
 const checkIfAllFilter = filter => filter === "All" ? true : false
 const checkIfAllFilterInArray = data => data.find( item => item === "All" ) ? true : false
@@ -24,8 +25,18 @@ const filterProfileType = (list, filterData) => {
 }
 
 export default (list, filter) => {
-	return filterProfileType(
+
+	const basicFiltered = filterProfileType(
 		filterCateredTo(list, filter.cateredTo), 
 		filter.profileType
-	)			
+	)		
+
+	if(filter.profileType === "Venue" ){
+		return basicFiltered
+	}
+
+	if(filter.profileType === "All" ){
+		return basicFiltered
+	}
+
 }
