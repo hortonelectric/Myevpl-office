@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Layout, Panel } from 'react-toolbox'
 
 import Header from './Header/Header'
 import Menu from './Menu/Menu'
@@ -22,11 +23,12 @@ class Container extends Component {
 	// }
     render() {
 		return (
-			<div>
-				<Header />
-				<Menu />
-				<Content children={this.props.children}></Content>
-			</div>
+			<Layout>
+				<Panel>
+					<Header />
+					<Content children={this.props.children}></Content>
+				</Panel>
+			</Layout>
 	   )
 	}
 }

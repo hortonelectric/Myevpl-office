@@ -10,7 +10,7 @@ export default class Personal extends Component {
         return (
 			<div>
 				<div className="panel-body p25">
-					<h3>Personal Form</h3>
+					<h1>Personal Form</h1>
 					<div className="section row">
 						<div className="col-xs-4">
 							<Field name="name" component={renderName}/>

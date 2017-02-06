@@ -12,7 +12,7 @@ export default class Catering extends Component {
         return (
 			<div>
 				<div className="panel-body p25">
-					<h3>Catering Form</h3>
+					<h1>Catering Form</h1>
 					<div className="section row">
 						<div className="col-xs-4">
 							<div className="col-xs-12">

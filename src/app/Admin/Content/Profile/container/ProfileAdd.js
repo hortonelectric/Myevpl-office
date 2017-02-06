@@ -3,6 +3,7 @@ import { Field, reduxForm, getFormValues  } from 'redux-form'
 import { connect } from 'react-redux'
 import Dropdown from 'react-toolbox/lib/dropdown'
 import Button from 'react-toolbox/lib/button'
+import Layout from 'react-toolbox/lib/layout'
 
 import { addProfile } from '../middleware/middleware'
 import { changeAddProfileFormType,changeAddProfilePage } from '../action/action'
@@ -54,7 +55,7 @@ class ProfileAdd extends Component {
 		if(this.props.page === 'selectTypeForm'){
 			return (
 				<div className="p25">
-					<h3>Select Profile Type</h3>
+					<h1>Select Profile Type</h1>
 					<Button primary raised type="button" onClick={() => this._handleProfileTypeButton('Venue', 'personalForm')} style={{ marginRight: 25 }}>Venue</Button>
 					<Button primary raised type="button" onClick={() => this._handleProfileTypeButton('Catering', 'personalForm')}>Catering</Button>
 				</div>
@@ -85,7 +86,6 @@ class ProfileAdd extends Component {
 	}
 
     render () {
-		console.log(this.props)
         return (
 			<section>
 				<form>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Table from 'react-toolbox/lib/table'
+import { Layout, Panel } from 'react-toolbox'
 
 import { listProfiles } from '../Admin/Content/Profile/middleware/middleware'
 import ProfileFilterTable from './ProfileFilterTable/ProfileFilterTable'
@@ -29,21 +30,25 @@ class Home extends Component {
 
     render() {
 		return (
-			<section>
-				<div>
-					<h1>Profile List</h1>
-				</div>
-				<Table
-					className="p25"
-					selectable={false}
-					model={ProfileModel}
-					source={this._fitlerTable()}
-				/>		
-				<br />
-				<br />
-				<h2>Filters</h2>
-				<ProfileFilterTable />
-			</section>
+			<Layout>
+				<Panel>
+					<section style={{paddingTop: 25, paddingBottom: 25, paddingLeft: 50, paddingRight: 50}}>
+						<div>
+							<h1>Profile List</h1>
+						</div>
+						<Table
+							className="p25"
+							selectable={false}
+							model={ProfileModel}
+							source={this._fitlerTable()}
+						/>		
+						<br />
+						<br />
+						<h2>Filters</h2>
+						<ProfileFilterTable />
+					</section>
+				</Panel>
+			</Layout>
 	   )
 	}
 }
