@@ -4,6 +4,8 @@ import Dropdown from 'react-toolbox/lib/dropdown'
 import Checkbox from 'react-toolbox/lib/checkbox'
 import _ from 'lodash'
 
+import VenueFilter from './Venue/VenueFilter'
+
 import { cateredTo, venueType } from '../../../lib/profileFieldList'
 import { changeFilterProfileType, insertFilterCateredTo, removeFilterCateredTo } from './action'
 
@@ -48,6 +50,12 @@ class Home extends Component {
 		})
 	}
 
+	_renderProfileTypeSpecific = () => {
+		if(this.props.profileType === "Venue")	{
+			return <VenueFilter />	
+		}
+	}
+
     render() {
 		return (
 			<section>
@@ -63,6 +71,9 @@ class Home extends Component {
 				<div>
 					<h4>Events Catered To</h4>
 					{this._renderCateredToCheckboxes()}
+				</div>
+				<div>
+					{this._renderProfileTypeSpecific()}				
 				</div>
 			</section>
 	   )

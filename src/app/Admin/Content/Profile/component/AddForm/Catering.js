@@ -12,12 +12,11 @@ export default class Catering extends Component {
         return (
 			<div>
 				<div className="panel-body p25">
-					<h3>Venue Form</h3>
+					<h3>Catering Form</h3>
 					<div className="section row">
 						<div className="col-xs-4">
-							<p>Events Catered To</p>
 							<div className="col-xs-12">
-								<p>Venue Type</p>
+								<p>Events Catered To</p>
 								<div className="col-xs-4">
 									<Field name="venueType.Church" component={renderCheckboxes} label="Church"/>
 								</div>
@@ -84,12 +83,14 @@ export default class Catering extends Component {
 					<br/>
 					<div className="section row">
 						<div className="col-xs-12">
+							<p>Menu Details</p>
 							<Field name="menu" component={renderMenu}/>
 						</div>
 					</div>
 					<br/>
 					<div className="section row">
 						<div className="col-xs-12">
+							<p>Package Details</p>
 							<Field name="package" component={renderPackage}/>
 						</div>
 					</div>

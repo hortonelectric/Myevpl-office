@@ -10,13 +10,22 @@ class Container extends Component {
     toggleDrawer() {
 
     }
+    // render() {
+	// 	return (
+	// 		<div>
+	// 			<Header />
+	// 			<Menu />
+	// 			<Content children={this.props.children}></Content>
+	// 			<Alert />
+	// 		</div>
+	//    )
+	// }
     render() {
 		return (
 			<div>
 				<Header />
 				<Menu />
 				<Content children={this.props.children}></Content>
-				<Alert />
 			</div>
 	   )
 	}
