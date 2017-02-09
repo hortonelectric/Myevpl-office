@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import AppBar from 'react-toolbox/lib/app_bar'
 import Navigation from 'react-toolbox/lib/navigation'
 
-class Header extends React.Component {
+export default class Header extends React.Component {
 
     render() {
         return (
@@ -16,9 +16,3 @@ class Header extends React.Component {
         )
     }
 }
-
-export default connect(
-	state => ({
-			profile : state.admin.user.profile
-		})
-)(Header)

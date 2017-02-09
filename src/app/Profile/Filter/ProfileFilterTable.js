@@ -9,7 +9,7 @@ import VenueFilter from './Venue/VenueFilter'
 import { cateredTo, venueType } from '../../../lib/profileFieldList'
 import { changeFilterProfileType, insertFilterCateredTo, removeFilterCateredTo } from './action'
 
-class Home extends Component {
+class ProfileFilter extends Component {
 
 	_handleProfileTypeChange = (value) => {
 		this.props.dispatch(
@@ -92,4 +92,4 @@ const profileTypeFilterModel = [
 export default connect( state => ({
 	profileType : state.profile.filter.profileType,
 	cateredTo 	: state.profile.filter.cateredTo
-}) )(Home)
+}) )(ProfileFilter)
