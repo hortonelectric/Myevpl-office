@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ProfileList from '../Profile/List/List'
 
-class Home extends Component {
+export default class Home extends Component {
 
     render() {
 		return (
