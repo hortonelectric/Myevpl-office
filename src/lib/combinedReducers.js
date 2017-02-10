@@ -2,7 +2,6 @@ import { combineReducers } from 'redux'
 
 import form from './formReducer'
 
-import * as Profile from '../app/Profile/List/reducer'
 // import * as Admin_ProfileLoader from '../app/Admin/Content/Profile/reducer/loaderReducer'
 // import * as Admin_ProfileFilter from '../app/Admin/Content/Profile/ProfileFilter/reducer'
 //
@@ -15,8 +14,10 @@ import * as Profile from '../app/Profile/List/reducer'
 // import * as Admin_UserError from '../app/Admin/User/reducer/errorReducer'
 // import * as Admin_UserLoader from '../app/Admin/User/reducer/loaderReducer'
 
+import * as Profile from '../app/Profile/List/reducer'
 import * as ProfileFilter from '../app/Profile/Filter/reducer'
 import * as ProfileFilterVenue from '../app/Profile/Filter/Venue/reducer'
+import * as ProfileManagement from '../app/Profile/Management/reducer'
 
 // import { alert } from '../app/Admin/Alert/reducer'
 
@@ -74,6 +75,10 @@ const store = combineReducers({
     //Profile Filter
 	profile : combineReducers({
 		list   		: Profile.profiles,
+		add			: combineReducers({
+			profileType 	: ProfileManagement.addProfileType,
+			profilePage 	: ProfileManagement.addProfilePage
+		}),
 		filter 		: combineReducers({
 			profileType : ProfileFilter.profileType,
 			cateredTo 	: ProfileFilter.cateredTo,

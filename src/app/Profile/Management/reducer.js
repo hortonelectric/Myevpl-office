@@ -1,6 +1,6 @@
-import * as ACTION from '../action/action'
+import * as ACTION from './action'
 
-export const addProfileFormType = (state = 'Venue', action) => {
+export const addProfileType = (state = 'Venue', action) => {
 
     switch (action.type) {
         case ACTION.ADD_PROFILE_FORM_TYPE :

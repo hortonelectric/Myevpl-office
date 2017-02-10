@@ -5,7 +5,7 @@ import { Router, Route, browserHistory, IndexRedirect, IndexRoute } from 'react-
 // import { UserAuthWrapper } from 'redux-auth-wrapper'
 // import { authenticate } from '../app/Admin/User/middleware/middleware'
 
-// import Profile from './Content/Profile/Profile'
+import Profile from '../app/Profile/Management/Profile'
 import Container from '../app/Container'
 import Home from '../app/Home/Home'
 
@@ -21,6 +21,7 @@ export default class RouterComponent extends Component {
 			<Router history={browserHistory} >
 				<Route path="/" component={Container}>
 					<IndexRoute component={Home}/>
+					<Route path="/profile" component={Profile} />
 				</Route>
 			</Router>
 		)
