@@ -42,7 +42,7 @@ module.exports = {
               include: path.join(__dirname, 'src')
             }, {
                 test: /(\.scss|\.css)$/,
-                include: [/node_modules\/react-toolbox\//,/src\//],
+                include: [/node_modules\/react-toolbox\//, /src\//],
                 loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
             },
             {

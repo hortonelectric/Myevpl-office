@@ -23,61 +23,13 @@ import * as ProfileManagement from '../app/Profile/Management/reducer'
 
 const store = combineReducers({
 
-	//Administration Module Store
-	// admin : combineReducers({
-		
-		// //Profile Store 
-		// profile : combineReducers({
-		//   selected    	: Admin_Profile.selected,
-		// 	  loader	: combineReducers({
-		// 		table		: Admin_ProfileLoader.tableLoader,
-		// 	}),
-		// 	addProfileFormType 	: Admin_Profile.addProfileFormType,
-		// 	addProfilePage 		: Admin_Profile.addProfilePage
-		// }),
-
-	// 	//Admin Store
-	// 	admin : combineReducers({
-	// 		list   		: Admin_Admin.admins,
-	// 		selected    : Admin_Admin.selected,
-	// 		modal       : combineReducers({
-	// 			add                : Admin_AdminModals.adminAddModal,
-	// 			editUser  		   : Admin_AdminModals.adminEditUserModal,
-	// 			editAccount        : Admin_AdminModals.adminEditAccountModal,
-	// 			delete             : Admin_AdminModals.adminDeleteModal
-	// 		}),
-	// 		error       : combineReducers({
-	// 			add             : Admin_AdminErrors.addAdminError,
-	// 			editUser       	: Admin_AdminErrors.editAdminUserError,
-	// 			editAccount     : Admin_AdminErrors.editAdminAccountError,
-	// 		}),
-	// 		loader		: combineReducers({
-	// 			table			: Admin_AdminLoader.tableLoader,
-	// 			add             : Admin_AdminLoader.addFormLoader,
-	// 	//         editUser  		: Admin_AdminLoader.editUserFormLoader,
-	// 	//         editAccount     : Admin_AdminLoader.editAccountFormLoader,
-	// 			delete          : Admin_AdminLoader.deleteFormLoader
-	// 		})
-	// 	}),
-	// 	
-	// 	//User Store
-	// 	user : combineReducers({
-	// 		profile : Admin_User.user,
-	// 		error   : Admin_UserError.error,
-	// 		loader	: Admin_UserLoader.loader
-	// 	}),
-	// 	
-	// 	// Alert Store
-	// 	alert,
-	//
-	// }),
-	
     //Profile Filter
 	profile : combineReducers({
 		list   		: Profile.profiles,
 		add			: combineReducers({
-			profileType 	: ProfileManagement.addProfileType,
-			profilePage 	: ProfileManagement.addProfilePage
+			profileType 			: ProfileManagement.addProfileType,
+			profilePage 			: ProfileManagement.addProfilePage,
+			profileVenueEventAreas	: ProfileManagement.addProfileVenueEventAreas
 		}),
 		filter 		: combineReducers({
 			profileType : ProfileFilter.profileType,

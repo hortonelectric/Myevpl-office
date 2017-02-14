@@ -109,11 +109,6 @@ export default class Venue extends Component {
 						</div>
 					</div>
 					<br/>
-					<div className="section row">
-						<div className="col-xs-12">
-							<Field name="details" component={renderDetails}/>
-						</div>
-					</div>
 				</div>
 			</div>
         )

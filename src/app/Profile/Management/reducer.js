@@ -21,3 +21,14 @@ export const addProfilePage = (state = 'selectTypeForm', action) => {
     }
 
 }
+
+export const addProfileVenueEventAreas = (state = 'selectTypeForm', action) => {
+
+    switch (action.type) {
+        case ACTION.ADD_PROFILE_VENUES_EVENT_AREAS :
+            return action.data
+        default :
+            return state
+    }
+
+}
