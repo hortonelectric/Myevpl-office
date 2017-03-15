@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { createStore, applyMiddleware } from 'redux'
-// import { Router, Route, browserHistory, IndexRedirect, IndexRoute } from 'react-router'
 import { BrowserRouter, Route } from 'react-router-dom'
+// import { Router, Route, browserHistory, IndexRedirect, IndexRoute } from 'react-router'
 
 // import { UserAuthWrapper } from 'redux-auth-wrapper'
 // import { authenticate } from '../app/Admin/User/middleware/middleware'
@@ -21,7 +21,7 @@ export default class RouterComponent extends Component {
 		return (
 			<BrowserRouter>
 				<Container>
-					<Route path="/" component={Home} />
+					<Route exact path="/" component={Home} />
 					<Route path="/profile" component={Profile} />
 				</Container>
 			</BrowserRouter>
