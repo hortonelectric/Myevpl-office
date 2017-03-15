@@ -10,7 +10,7 @@ export default class Header extends React.Component {
           <AppBar title='My Event Planner'>
             <Navigation type='horizontal'>
               <a href='/' label='Home' icon='inbox'>Home</a>&nbsp; &nbsp;
-      	      <a href='/admin/profile' active label='Admin Profiles' icon='person'>Admin Profiles</a>
+      	      <a href='/profile' active label='Admin Profiles' icon='person'>Admin Profiles</a>
             </Navigation>
           </AppBar>
         )

@@ -9,7 +9,7 @@ class Container extends Component {
 			<Layout>
 				<Panel>
 					<Header />
-					<div children={this.props.children}></div>
+					{this.props.children}
 				</Panel>
 			</Layout>
 	   )
